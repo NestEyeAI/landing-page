@@ -5,97 +5,183 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>nesteye.ai | AI + Hardware for Smarter Poultry Health</title>
     <meta name="description" content="Edge AI for poultry barns — detect piling, track weight, monitor environment, and intervene in under 500ms.">
+    <link rel="canonical" href="https://nesteye.ai/">
+    <link rel="icon" href="favicon.svg" type="image/svg+xml">
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="https://nesteye.ai/">
+    <meta property="og:title" content="nesteye.ai | AI + Hardware for Smarter Poultry Health">
+    <meta property="og:description" content="Edge AI for poultry barns — detect piling, track weight, monitor environment, and intervene in under 500ms.">
+    <meta property="og:image" content="https://nesteye.ai/og-image.png">
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:title" content="nesteye.ai | AI + Hardware for Smarter Poultry Health">
+    <meta name="twitter:description" content="Edge AI for poultry barns — detect piling, track weight, monitor environment, and intervene in under 500ms.">
 
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;700&family=Playfair+Display:ital,wght@0,400;0,600;1,400&display=swap" rel="stylesheet">
 
-    <script src="https://cdn.tailwindcss.com"></script>
-    <script>
-        tailwind.config = {
-            theme: {
-                extend: {
-                    fontFamily: {
-                        mono: ['"JetBrains Mono"', 'monospace'],
-                        serif: ['"Playfair Display"', 'serif'],
-                    },
-                    colors: {
-                        forest: '#1B4332',
-                        'forest-dark': '#0D2818',
-                        sage: '#6B8F71',
-                        coral: '#E85D4C',
-                        cream: '#FAF7F2',
-                        stone: '#E8E4DC',
-                        'green-tint': '#E8F5E9',
-                    },
-                    animation: {
-                        marquee: 'scroll 60s linear infinite',
-                    },
-                    keyframes: {
-                        scroll: {
-                            '0%': { transform: 'translateX(0)' },
-                            '100%': { transform: 'translateX(-50%)' },
-                        },
-                    },
-                },
-            },
-        };
-    </script>
-
+    <link rel="stylesheet" href="styles.css">
+    <link rel="stylesheet" href="hero-demo.css">
+    <link rel="stylesheet" href="hardware-demo.css">
     <style>
-        .hero-grid {
-            background-image:
-                linear-gradient(rgba(255,255,255,0.03) 1px, transparent 1px),
-                linear-gradient(90deg, rgba(255,255,255,0.03) 1px, transparent 1px);
-            background-size: 48px 48px;
+        html { scroll-padding-top: 5rem; }
+        .hero-noise {
+            background-image: radial-gradient(circle at 20% 50%, rgba(107, 143, 113, 0.15) 0%, transparent 50%),
+                              radial-gradient(circle at 80% 50%, rgba(27, 67, 50, 0.1) 0%, transparent 50%);
         }
         .founder-logo {
             object-fit: contain;
             display: block;
+            flex-shrink: 0;
+        }
+        .marquee-track {
+            display: flex;
+            width: max-content;
+            animation: marquee 30s linear infinite;
+        }
+        .marquee-inner {
+            display: flex;
+            align-items: center;
+            gap: 2.5rem;
+            padding: 0 1.25rem;
+        }
+        @keyframes marquee {
+            0% { transform: translateX(0); }
+            100% { transform: translateX(-50%); }
+        }
+        .marquee-track:hover {
+            animation-play-state: paused;
+        }
+        @media (prefers-reduced-motion: reduce) {
+            .marquee-track { animation: none; }
         }
     </style>
 </head>
 <body class="font-mono bg-cream text-[#1A1A1A] antialiased">
 
     <nav class="sticky top-0 z-50 bg-cream/90 backdrop-blur-md border-b border-forest/10">
-        <div class="max-w-6xl mx-auto px-4 sm:px-6 py-4 flex items-center justify-between gap-4">
-            <a href="/" class="font-extrabold text-lg tracking-tight text-forest">nesteye.ai</a>
-            <div class="hidden sm:flex items-center gap-6 text-xs font-bold uppercase tracking-widest text-forest/70">
-                <a href="#features" class="hover:text-forest transition-colors">Features</a>
-                <a href="#how-it-works" class="hover:text-forest transition-colors">How It Works</a>
-                <a href="#traction" class="hover:text-forest transition-colors">Traction</a>
-            </div>
-            <a href="/contact.html"
-               class="shrink-0 px-4 py-2 text-xs font-bold uppercase tracking-widest bg-forest text-white rounded hover:bg-forest-dark transition-colors">
-                Contact
+        <div class="max-w-5xl mx-auto px-4 sm:px-6 py-4 flex items-center justify-between gap-4">
+            <a href="index.html" class="inline-flex items-center px-3 py-1.5 rounded-md border border-forest/15 bg-white shadow-sm">
+                <span class="font-extrabold text-sm tracking-tight text-forest">nesteye.ai</span>
             </a>
+            <div class="hidden sm:flex items-center gap-4">
+                <a href="#features" class="text-xs font-bold uppercase tracking-widest text-forest/70 hover:text-forest transition-colors">Features</a>
+                <a href="#how-it-works" class="text-xs font-bold uppercase tracking-widest text-forest/70 hover:text-forest transition-colors">How It Works</a>
+                <a href="#traction" class="text-xs font-bold uppercase tracking-widest text-forest/70 hover:text-forest transition-colors">Traction</a>
+                <a href="contact.html"
+                   class="px-4 py-2 text-xs font-bold uppercase tracking-widest bg-forest text-white rounded hover:bg-forest-dark transition-colors">
+                    Request a Pilot
+                </a>
+            </div>
+            <button id="mobile-menu-btn" class="sm:hidden p-2 text-forest" aria-label="Open menu">
+                <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16"/></svg>
+            </button>
+        </div>
+        <div id="mobile-menu" class="sm:hidden hidden border-t border-forest/10 bg-cream/95 backdrop-blur-md">
+            <div class="px-4 py-4 space-y-3">
+                <a href="#features" class="block text-sm font-bold uppercase tracking-widest text-forest/70 hover:text-forest">Features</a>
+                <a href="#how-it-works" class="block text-sm font-bold uppercase tracking-widest text-forest/70 hover:text-forest">How It Works</a>
+                <a href="#traction" class="block text-sm font-bold uppercase tracking-widest text-forest/70 hover:text-forest">Traction</a>
+                <a href="contact.html" class="block w-full text-center px-4 py-3 text-xs font-bold uppercase tracking-widest bg-forest text-white rounded hover:bg-forest-dark transition-colors">Request a Pilot</a>
+            </div>
         </div>
     </nav>
 
-    <header class="relative overflow-hidden bg-gradient-to-br from-forest-dark via-forest to-forest-dark text-white">
-        <div class="absolute inset-0 hero-grid opacity-50"></div>
-
-        <div class="relative max-w-6xl mx-auto px-4 sm:px-6 py-20 sm:py-28 lg:py-32">
-            <p class="text-sage text-xs font-bold uppercase tracking-[0.3em] mb-4">AI + Hardware for Smarter Poultry Health</p>
-            <h1 class="font-serif text-4xl sm:text-5xl lg:text-6xl font-semibold leading-tight max-w-3xl">
+    <header class="relative overflow-hidden bg-cream hero-noise">
+        <div class="max-w-5xl mx-auto px-4 sm:px-6 pt-12 sm:pt-20 pb-6 sm:pb-10 text-center">
+            <p class="font-serif text-base sm:text-lg text-forest/70 mb-3">AI + Hardware for Smarter Poultry Health</p>
+            <h1 class="font-serif text-4xl sm:text-5xl lg:text-6xl font-semibold leading-tight text-forest">
                 See more. Know more.<br>
-                <span class="italic text-white/90">Keep flocks healthy.</span>
+                <span class="italic">Keep flocks healthy.</span>
             </h1>
-            <p class="mt-6 text-base sm:text-lg text-white/80 max-w-2xl leading-relaxed">
-                One Edge AI box per barn — high-resolution cameras and local machine learning detect piling, track individual bird weight, and monitor environmental health in real time.
-            </p>
-            <div class="mt-10 flex flex-wrap gap-4">
-                <a href="/contact.html"
-                   class="inline-flex items-center px-8 py-3 text-sm font-bold uppercase tracking-widest bg-white text-forest rounded hover:bg-white/90 transition-colors">
-                    Get in Touch
-                </a>
-                <a href="#features"
-                   class="inline-flex items-center px-8 py-3 text-sm font-bold uppercase tracking-widest border border-white/30 text-white rounded hover:bg-white/10 transition-colors">
-                    Explore Features
-                </a>
+
+            <div class="mt-10 sm:mt-14 mx-auto max-w-3xl">
+                <div class="rounded-xl overflow-hidden border border-forest/15 shadow-lg bg-forest-dark text-left">
+                    <div class="flex items-center gap-2 px-4 py-3 bg-forest border-b border-white/10">
+                        <span class="w-3 h-3 rounded-full bg-coral/80"></span>
+                        <span class="w-3 h-3 rounded-full bg-sage/60"></span>
+                        <span class="w-3 h-3 rounded-full bg-white/20"></span>
+                        <span class="ml-3 text-xs text-white/50 tracking-wide">nesteye dashboard</span>
+                    </div>
+                    <div id="hero-demo" class="demo" data-phase="monitoring">
+                        <div class="demo-layout">
+                            <div class="barn-view">
+                                <div class="barn-grid"></div>
+                                <div class="piling-zone"></div>
+                                <div class="led-emitter" style="left:25%;top:8%">
+                                    <span class="led-ring"></span><span class="led-ring"></span><span class="led-ring"></span>
+                                </div>
+                                <div class="led-emitter" style="left:50%;top:5%">
+                                    <span class="led-ring"></span><span class="led-ring"></span><span class="led-ring"></span>
+                                </div>
+                                <div class="led-emitter" style="left:75%;top:8%">
+                                    <span class="led-ring"></span><span class="led-ring"></span><span class="led-ring"></span>
+                                </div>
+                                <div class="speaker-emitter" style="left:8%;bottom:20%">
+                                    <span class="sound-ring"></span><span class="sound-ring"></span><span class="sound-ring"></span>
+                                </div>
+                                <div class="speaker-emitter" style="right:8%;bottom:20%">
+                                    <span class="sound-ring"></span><span class="sound-ring"></span><span class="sound-ring"></span>
+                                </div>
+                                <div class="bird" style="--x:12%;--y:15%"></div>
+                                <div class="bird" style="--x:28%;--y:22%"></div>
+                                <div class="bird" style="--x:45%;--y:10%"></div>
+                                <div class="bird" style="--x:62%;--y:30%"></div>
+                                <div class="bird" style="--x:78%;--y:18%"></div>
+                                <div class="bird" style="--x:88%;--y:35%"></div>
+                                <div class="bird" style="--x:15%;--y:50%"></div>
+                                <div class="bird" style="--x:35%;--y:55%"></div>
+                                <div class="bird" style="--x:50%;--y:45%"></div>
+                                <div class="bird" style="--x:70%;--y:60%"></div>
+                                <div class="bird" style="--x:85%;--y:52%"></div>
+                                <div class="bird" style="--x:20%;--y:75%"></div>
+                                <div class="bird" style="--x:40%;--y:80%"></div>
+                                <div class="bird" style="--x:55%;--y:70%"></div>
+                                <div class="bird" style="--x:72%;--y:82%"></div>
+                                <div class="bird" style="--x:90%;--y:72%"></div>
+                                <div class="bird" style="--x:8%;--y:38%"></div>
+                                <div class="bird" style="--x:52%;--y:88%"></div>
+                                <div class="bird" style="--x:30%;--y:40%"></div>
+                                <div class="bird" style="--x:65%;--y:48%"></div>
+                                <div class="alert-badge">Piling detected</div>
+                            </div>
+                            <div class="metrics-panel">
+                                <div class="status-pill" id="demo-status" aria-live="polite">Monitoring</div>
+                                <p class="text-xs text-white/40 uppercase tracking-widest mb-3" id="demo-phase-label">Step 1: Monitor</p>
+                                <div class="metric-row">
+                                    <span class="metric-label">Temp</span>
+                                    <span class="metric-value" id="demo-temp">72°F</span>
+                                </div>
+                                <div class="metric-row">
+                                    <span class="metric-label">Humidity</span>
+                                    <span class="metric-value" id="demo-humidity">65%</span>
+                                </div>
+                                <div class="metric-row">
+                                    <span class="metric-label">Detection AP</span>
+                                    <span class="metric-value" id="demo-ap">0.998</span>
+                                </div>
+                                <div class="metric-row">
+                                    <span class="metric-label">Latency</span>
+                                    <span class="metric-value" id="demo-latency">&lt; 500ms</span>
+                                </div>
+                                <p class="demo-step" id="demo-step">All systems nominal</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <p class="mt-5 font-serif italic text-sm sm:text-base text-forest/60">Real-time flock monitoring — detect, intervene, and protect in under 500ms.</p>
             </div>
         </div>
     </header>
+
+    <section class="py-8 sm:py-12 bg-cream border-b border-forest/5">
+        <nav class="max-w-5xl mx-auto px-4 sm:px-6 flex flex-wrap items-center justify-center gap-x-8 sm:gap-x-14 gap-y-3">
+            <a href="#features" class="font-serif text-base sm:text-lg text-forest/70 hover:text-forest transition-colors">Features</a>
+            <a href="#how-it-works" class="font-serif text-base sm:text-lg text-forest/70 hover:text-forest transition-colors">How It Works</a>
+            <a href="#traction" class="font-serif text-base sm:text-lg text-forest/70 hover:text-forest transition-colors">Traction</a>
+            <a href="contact.html?interest=pilot" class="font-serif text-base sm:text-lg text-forest/70 hover:text-forest transition-colors">Request a Pilot</a>
+        </nav>
+    </section>
 
     <section class="bg-stone border-y border-forest/10">
         <div class="max-w-6xl mx-auto px-4 sm:px-6 py-10">
@@ -126,27 +212,27 @@
 
             <div class="grid sm:grid-cols-2 lg:grid-cols-3 gap-6">
                 <div class="bg-white rounded-lg p-6 shadow-sm">
-                    <span class="inline-block w-8 h-8 rounded-full bg-forest text-white text-sm font-bold flex items-center justify-center mb-4">01</span>
+                    <span class="inline-flex w-8 h-8 rounded-full bg-forest text-white text-sm font-bold items-center justify-center mb-4">01</span>
                     <h3 class="font-bold text-forest mb-2">Piling Detection</h3>
                     <p class="text-sm text-forest/70">Advanced AI/ML algorithms and high-res cameras identify piling among chickens instantly.</p>
                 </div>
                 <div class="bg-white rounded-lg p-6 shadow-sm">
-                    <span class="inline-block w-8 h-8 rounded-full bg-forest text-white text-sm font-bold flex items-center justify-center mb-4">02</span>
+                    <span class="inline-flex w-8 h-8 rounded-full bg-forest text-white text-sm font-bold items-center justify-center mb-4">02</span>
                     <h3 class="font-bold text-forest mb-2">Piling Prevention</h3>
                     <p class="text-sm text-forest/70">Rotating LED lights and precise noise patterns safely disperse chickens before piling becomes lethal.</p>
                 </div>
                 <div class="bg-white rounded-lg p-6 shadow-sm">
-                    <span class="inline-block w-8 h-8 rounded-full bg-forest text-white text-sm font-bold flex items-center justify-center mb-4">03</span>
+                    <span class="inline-flex w-8 h-8 rounded-full bg-forest text-white text-sm font-bold items-center justify-center mb-4">03</span>
                     <h3 class="font-bold text-forest mb-2">Weight Monitoring</h3>
                     <p class="text-sm text-forest/70">Accurately detects and tracks the weight of individual chickens, providing continuous growth insights.</p>
                 </div>
                 <div class="bg-white rounded-lg p-6 shadow-sm">
-                    <span class="inline-block w-8 h-8 rounded-full bg-forest text-white text-sm font-bold flex items-center justify-center mb-4">04</span>
+                    <span class="inline-flex w-8 h-8 rounded-full bg-forest text-white text-sm font-bold items-center justify-center mb-4">04</span>
                     <h3 class="font-bold text-forest mb-2">Early Disease Detection</h3>
                     <p class="text-sm text-forest/70">Identifies health issues at an early stage, allowing for rapid, targeted veterinary intervention.</p>
                 </div>
                 <div class="bg-white rounded-lg p-6 shadow-sm sm:col-span-2 lg:col-span-1 lg:col-start-2">
-                    <span class="inline-block w-8 h-8 rounded-full bg-forest text-white text-sm font-bold flex items-center justify-center mb-4">05</span>
+                    <span class="inline-flex w-8 h-8 rounded-full bg-forest text-white text-sm font-bold items-center justify-center mb-4">05</span>
                     <h3 class="font-bold text-forest mb-2">Environmental Monitoring</h3>
                     <p class="text-sm text-forest/70">Continuously monitors temperature, humidity, and air quality 24/7 — keeping barn conditions optimal for flock health.</p>
                 </div>
@@ -163,34 +249,143 @@
 
             <div class="grid sm:grid-cols-2 lg:grid-cols-4 gap-6 mb-12">
                 <div class="bg-white rounded-lg p-6 shadow-sm">
-                    <span class="inline-block w-8 h-8 rounded-full bg-forest text-white text-sm font-bold flex items-center justify-center mb-4">1</span>
+                    <span class="inline-flex w-8 h-8 rounded-full bg-forest text-white text-sm font-bold items-center justify-center mb-4">1</span>
                     <h3 class="font-bold text-forest mb-2">Capture</h3>
                     <p class="text-sm text-forest/70">Overhead IR cameras and environmental sensors capture continuous barn data.</p>
                 </div>
                 <div class="bg-white rounded-lg p-6 shadow-sm">
-                    <span class="inline-block w-8 h-8 rounded-full bg-forest text-white text-sm font-bold flex items-center justify-center mb-4">2</span>
+                    <span class="inline-flex w-8 h-8 rounded-full bg-forest text-white text-sm font-bold items-center justify-center mb-4">2</span>
                     <h3 class="font-bold text-forest mb-2">Classify</h3>
                     <p class="text-sm text-forest/70">Edge AI classifies behavior, estimates weight, and reads metrics locally in <strong class="text-sage">under 500ms</strong>.</p>
                 </div>
                 <div class="bg-white rounded-lg p-6 shadow-sm">
-                    <span class="inline-block w-8 h-8 rounded-full bg-forest text-white text-sm font-bold flex items-center justify-center mb-4">3</span>
+                    <span class="inline-flex w-8 h-8 rounded-full bg-forest text-white text-sm font-bold items-center justify-center mb-4">3</span>
                     <h3 class="font-bold text-forest mb-2">Intervene</h3>
                     <p class="text-sm text-forest/70">Adaptive LED and noise patterns trigger to disperse birds without habituation.</p>
                 </div>
                 <div class="bg-white rounded-lg p-6 shadow-sm">
-                    <span class="inline-block w-8 h-8 rounded-full bg-forest text-white text-sm font-bold flex items-center justify-center mb-4">4</span>
+                    <span class="inline-flex w-8 h-8 rounded-full bg-forest text-white text-sm font-bold items-center justify-center mb-4">4</span>
                     <h3 class="font-bold text-forest mb-2">Dashboard</h3>
                     <p class="text-sm text-forest/70">Farmers view real-time data and alerts on their mobile dashboard.</p>
                 </div>
             </div>
 
             <div class="bg-forest rounded-lg p-6 sm:p-8 text-white">
-                <p class="text-xs font-bold uppercase tracking-widest text-sage mb-4">Hardware Per Barn</p>
-                <div class="grid sm:grid-cols-2 lg:grid-cols-4 gap-4 text-sm">
-                    <div class="flex items-center gap-2"><span class="text-sage">&#9679;</span> Overhead high-res IR cameras (PoE)</div>
-                    <div class="flex items-center gap-2"><span class="text-sage">&#9679;</span> Jetson Orin Nano edge device</div>
-                    <div class="flex items-center gap-2"><span class="text-sage">&#9679;</span> Addressable LED strips &amp; audio emitters</div>
-                    <div class="flex items-center gap-2"><span class="text-sage">&#9679;</span> Environmental sensor array</div>
+                <p class="text-xs font-bold uppercase tracking-widest text-sage mb-2">Hardware Per Barn</p>
+                <p class="text-sm text-white/60 mb-6">Tap any component to explore the integrated edge AI system.</p>
+
+                <div id="hardware-demo" class="hw-demo" data-active="cameras">
+                    <div class="hw-layout">
+                        <div class="hw-diagram">
+                            <span class="hw-svg-caption">Barn cutaway view</span>
+                            <svg viewBox="0 0 480 320" class="hw-svg" role="img" aria-label="Isometric cutaway of a poultry barn showing camera, LED strip, edge AI box, audio emitters, and environmental sensors">
+                                <defs>
+                                    <pattern id="hw-floor-grid" width="20" height="10" patternUnits="userSpaceOnUse" patternTransform="skewX(-26.57)">
+                                        <path d="M 20 0 L 0 0 0 10" class="hw-floor-grid"/>
+                                    </pattern>
+                                </defs>
+
+                                <polygon class="hw-floor" points="60,280 360,280 440,180 140,180"/>
+                                <polygon points="60,280 360,280 440,180 140,180" fill="url(#hw-floor-grid)" opacity="0.5"/>
+
+                                <g class="hw-birds">
+                                    <circle cx="120" cy="245" r="2.5"/>
+                                    <circle cx="185" cy="232" r="2.5"/>
+                                    <circle cx="245" cy="220" r="2.5"/>
+                                    <circle cx="305" cy="208" r="2.5"/>
+                                    <circle cx="220" cy="252" r="2.5"/>
+                                    <circle cx="285" cy="240" r="2.5"/>
+                                    <circle cx="160" cy="262" r="2.5"/>
+                                    <circle cx="345" cy="225" r="2.5"/>
+                                </g>
+
+                                <polygon class="hw-wall" points="140,180 440,180 440,80 140,80"/>
+                                <polygon class="hw-wall hw-wall-right" points="440,180 360,280 360,180 440,80"/>
+
+                                <g class="hw-leds-group hw-hotspot" data-hardware="leds" role="button" tabindex="0" aria-label="Addressable LED strips">
+                                    <line class="hw-led-strip" x1="60" y1="180" x2="360" y2="180"/>
+                                    <line class="hw-led-strip" x1="360" y1="180" x2="440" y2="80"/>
+                                    <line class="hw-led-strip" x1="440" y1="80" x2="140" y2="80"/>
+                                    <line class="hw-led-strip" x1="140" y1="80" x2="60" y2="180"/>
+                                </g>
+
+                                <g class="hw-cameras-group hw-hotspot" data-hardware="cameras" role="button" tabindex="0" aria-label="Overhead IR cameras">
+                                    <line class="hw-mount" x1="100" y1="80" x2="100" y2="130"/>
+                                    <line class="hw-mount" x1="250" y1="80" x2="250" y2="130"/>
+                                    <line class="hw-mount" x1="400" y1="80" x2="400" y2="130"/>
+                                    <g class="hw-camera" transform="translate(100 130)">
+                                        <circle class="hw-camera-ring" r="9"/>
+                                        <circle class="hw-camera-lens" r="3.5"/>
+                                    </g>
+                                    <g class="hw-camera" transform="translate(250 130)">
+                                        <circle class="hw-camera-ring" r="9"/>
+                                        <circle class="hw-camera-lens" r="3.5"/>
+                                    </g>
+                                    <g class="hw-camera" transform="translate(400 130)">
+                                        <circle class="hw-camera-ring" r="9"/>
+                                        <circle class="hw-camera-lens" r="3.5"/>
+                                    </g>
+                                </g>
+
+                                <g class="hw-sensors-group hw-hotspot" data-hardware="sensors" role="button" tabindex="0" aria-label="Environmental sensors">
+                                    <g class="hw-sensor" transform="translate(165 100)">
+                                        <rect class="hw-sensor-body" x="-6" y="-5" width="12" height="10" rx="1.5"/>
+                                        <circle class="hw-sensor-led" cx="3" cy="0" r="1.5"/>
+                                    </g>
+                                    <g class="hw-sensor" transform="translate(415 100)">
+                                        <rect class="hw-sensor-body" x="-6" y="-5" width="12" height="10" rx="1.5"/>
+                                        <circle class="hw-sensor-led" cx="3" cy="0" r="1.5"/>
+                                    </g>
+                                </g>
+
+                                <g class="hw-jetson-group hw-hotspot" data-hardware="jetson" role="button" tabindex="0" aria-label="Jetson Orin Nano edge AI box">
+                                    <rect class="hw-jetson-box" x="260" y="120" width="60" height="32" rx="3"/>
+                                    <circle class="hw-jetson-dot" cx="312" cy="126" r="2"/>
+                                    <text class="hw-jetson-label" x="290" y="134" text-anchor="middle">JETSON</text>
+                                    <text class="hw-jetson-label" x="290" y="146" text-anchor="middle" style="opacity:0.7">ORIN NANO</text>
+                                </g>
+
+                                <g class="hw-audio-group hw-hotspot" data-hardware="audio" role="button" tabindex="0" aria-label="Audio emitters">
+                                    <g class="hw-speaker" transform="translate(200 155)">
+                                        <circle class="hw-speaker-cone" r="9"/>
+                                        <circle class="hw-speaker-center" r="3"/>
+                                        <circle class="hw-sound-ring" r="9"/>
+                                        <circle class="hw-sound-ring" r="9"/>
+                                        <circle class="hw-sound-ring" r="9"/>
+                                    </g>
+                                    <g class="hw-speaker" transform="translate(400 155)">
+                                        <circle class="hw-speaker-cone" r="9"/>
+                                        <circle class="hw-speaker-center" r="3"/>
+                                        <circle class="hw-sound-ring" r="9"/>
+                                        <circle class="hw-sound-ring" r="9"/>
+                                        <circle class="hw-sound-ring" r="9"/>
+                                    </g>
+                                </g>
+
+                                <g class="hw-flows">
+                                    <path class="hw-flow" data-from="cameras" d="M 100 130 Q 180 130 290 134"/>
+                                    <path class="hw-flow" data-from="cameras" d="M 250 130 L 290 134"/>
+                                    <path class="hw-flow" data-from="cameras" d="M 400 130 Q 340 130 290 134"/>
+                                    <path class="hw-flow" data-from="sensors" d="M 165 100 Q 230 110 290 130"/>
+                                    <path class="hw-flow" data-from="sensors" d="M 415 100 Q 350 110 290 130"/>
+                                </g>
+                            </svg>
+                            <button id="hw-tour-toggle" class="hw-tour-btn" type="button" aria-pressed="false">Pause tour</button>
+                        </div>
+
+                        <div class="hw-panel">
+                            <p class="hw-step-label" id="hw-step-label">Step 1 of 5</p>
+                            <h3 class="hw-detail-title" id="hw-detail-title">IR Cameras</h3>
+                            <p class="hw-detail-body" id="hw-detail-body" aria-live="polite">Overhead PoE cameras capture continuous flock behavior at barn scale.</p>
+                            <div class="hw-list" role="tablist" aria-label="Hardware components">
+                                <button type="button" class="hw-list-btn" role="tab" data-hardware="cameras" aria-selected="true"><span class="hw-list-dot"></span>Cameras</button>
+                                <button type="button" class="hw-list-btn" role="tab" data-hardware="jetson" aria-selected="false"><span class="hw-list-dot"></span>Edge AI</button>
+                                <button type="button" class="hw-list-btn" role="tab" data-hardware="leds" aria-selected="false"><span class="hw-list-dot"></span>LED strips</button>
+                                <button type="button" class="hw-list-btn" role="tab" data-hardware="audio" aria-selected="false"><span class="hw-list-dot"></span>Audio</button>
+                                <button type="button" class="hw-list-btn" role="tab" data-hardware="sensors" aria-selected="false"><span class="hw-list-dot"></span>Sensors</button>
+                            </div>
+                        </div>
+                    </div>
                 </div>
             </div>
         </div>
@@ -224,37 +419,71 @@
         </div>
     </section>
 
-    <section id="founders" class="py-20 sm:py-28 bg-cream border-y border-forest/10">
-        <div class="max-w-7xl mx-auto px-4 sm:px-6">
-            <div class="text-center mb-12 sm:mb-16">
-                <p class="text-xs font-bold uppercase tracking-[0.3em] text-forest/50 mb-3">Our Background</p>
-                <h2 class="font-serif text-2xl sm:text-4xl font-semibold text-forest italic">Founder Experience</h2>
-            </div>
-
-            <div class="overflow-hidden relative py-6">
-                <div class="animate-marquee flex w-max items-center">
-                    <div class="flex items-center gap-20 sm:gap-28 px-10 sm:px-14">
-                        <img src="/logos/amazon.svg" alt="Amazon" class="founder-logo h-14 sm:h-20 w-auto max-w-[180px] shrink-0" loading="lazy">
-                        <img src="/logos/rice.png" alt="Rice University" class="founder-logo h-14 sm:h-20 w-auto max-w-[180px] shrink-0" loading="lazy">
-                        <img src="/logos/mobilizegreen.png" alt="MobilizeGreen" class="founder-logo h-14 sm:h-20 w-auto max-w-[200px] shrink-0" loading="lazy">
-                        <img src="/logos/cox.png" alt="Cox" class="founder-logo h-12 sm:h-16 w-auto max-w-[180px] shrink-0" loading="lazy">
-                        <img src="/logos/ut-austin.png" alt="University of Texas at Austin" class="founder-logo h-14 sm:h-20 w-auto max-w-[180px] shrink-0" loading="lazy">
-                        <img src="/logos/serent.png" alt="Serent Capital" class="founder-logo h-14 sm:h-20 w-auto max-w-[200px] shrink-0" loading="lazy">
-                        <img src="/logos/banner.png" alt="Banner Health" class="founder-logo h-14 sm:h-20 w-auto max-w-[180px] shrink-0" loading="lazy">
-                        <img src="/logos/dell.svg" alt="Dell Technologies" class="founder-logo h-12 sm:h-16 w-auto max-w-[180px] shrink-0" loading="lazy">
+    <section id="founders" class="py-12 sm:py-16 bg-cream">
+        <div class="max-w-5xl mx-auto px-4 sm:px-6">
+            <h2 class="font-serif text-2xl sm:text-3xl font-semibold text-forest text-center mb-8 sm:mb-10">Founder Experience</h2>
+            <div class="rounded-2xl sm:rounded-full border border-forest/15 bg-white shadow-sm py-5 sm:py-7 overflow-hidden">
+                <div class="marquee-track">
+                    <div class="marquee-inner">
+                        <img src="logos/nvidia.png" alt="NVIDIA" class="founder-logo h-8 w-24" loading="lazy">
+                        <img src="logos/amazon.svg" alt="Amazon" class="founder-logo h-8 w-24" loading="lazy">
+                        <img src="logos/rice.png" alt="Rice University" class="founder-logo h-8 w-24" loading="lazy">
+                        <img src="logos/mobilizegreen.png" alt="MobilizeGreen" class="founder-logo h-8 w-28" loading="lazy">
+                        <img src="logos/cox.png" alt="Cox" class="founder-logo h-7 w-20" loading="lazy">
+                        <img src="logos/ut-austin.png" alt="University of Texas at Austin" class="founder-logo h-8 w-24" loading="lazy">
+                        <img src="logos/serent.png" alt="Serent Capital" class="founder-logo h-8 w-28" loading="lazy">
+                        <img src="logos/dell.svg" alt="Dell Technologies" class="founder-logo h-7 w-20" loading="lazy">
                     </div>
-                    <div class="flex items-center gap-20 sm:gap-28 px-10 sm:px-14" aria-hidden="true">
-                        <img src="/logos/amazon.svg" alt="" class="founder-logo h-14 sm:h-20 w-auto max-w-[180px] shrink-0" loading="lazy">
-                        <img src="/logos/rice.png" alt="" class="founder-logo h-14 sm:h-20 w-auto max-w-[180px] shrink-0" loading="lazy">
-                        <img src="/logos/mobilizegreen.png" alt="" class="founder-logo h-14 sm:h-20 w-auto max-w-[200px] shrink-0" loading="lazy">
-                        <img src="/logos/cox.png" alt="" class="founder-logo h-12 sm:h-16 w-auto max-w-[180px] shrink-0" loading="lazy">
-                        <img src="/logos/ut-austin.png" alt="" class="founder-logo h-14 sm:h-20 w-auto max-w-[180px] shrink-0" loading="lazy">
-                        <img src="/logos/serent.png" alt="" class="founder-logo h-14 sm:h-20 w-auto max-w-[200px] shrink-0" loading="lazy">
-                        <img src="/logos/banner.png" alt="" class="founder-logo h-14 sm:h-20 w-auto max-w-[180px] shrink-0" loading="lazy">
-                        <img src="/logos/dell.svg" alt="" class="founder-logo h-12 sm:h-16 w-auto max-w-[180px] shrink-0" loading="lazy">
+                    <div class="marquee-inner" aria-hidden="true">
+                        <img src="logos/nvidia.png" alt="" class="founder-logo h-8 w-24" loading="lazy">
+                        <img src="logos/amazon.svg" alt="" class="founder-logo h-8 w-24" loading="lazy">
+                        <img src="logos/rice.png" alt="" class="founder-logo h-8 w-24" loading="lazy">
+                        <img src="logos/mobilizegreen.png" alt="" class="founder-logo h-8 w-28" loading="lazy">
+                        <img src="logos/cox.png" alt="" class="founder-logo h-7 w-20" loading="lazy">
+                        <img src="logos/ut-austin.png" alt="" class="founder-logo h-8 w-24" loading="lazy">
+                        <img src="logos/serent.png" alt="" class="founder-logo h-8 w-28" loading="lazy">
+                        <img src="logos/dell.svg" alt="" class="founder-logo h-7 w-20" loading="lazy">
                     </div>
                 </div>
             </div>
+        </div>
+    </section>
+
+    <section id="roi" class="py-16 sm:py-24 bg-green-tint">
+        <div class="max-w-6xl mx-auto px-4 sm:px-6">
+            <div class="text-center mb-12">
+                <p class="text-xs font-bold uppercase tracking-[0.3em] text-forest/60 mb-2">Return on Investment</p>
+                <h2 class="font-serif text-3xl sm:text-4xl font-semibold text-forest">Net-Positive by Month 3</h2>
+            </div>
+            <div class="grid sm:grid-cols-3 gap-6 mb-10">
+                <div class="bg-white rounded-lg p-6 text-center shadow-sm">
+                    <p class="text-3xl sm:text-4xl font-bold text-forest">$3.7–11K</p>
+                    <p class="mt-2 text-xs uppercase tracking-widest text-forest/60">Savings per barn per year</p>
+                </div>
+                <div class="bg-white rounded-lg p-6 text-center shadow-sm">
+                    <p class="text-3xl sm:text-4xl font-bold text-sage">3–4 mo</p>
+                    <p class="mt-2 text-xs uppercase tracking-widest text-forest/60">Payback period</p>
+                </div>
+                <div class="bg-white rounded-lg p-6 text-center shadow-sm">
+                    <p class="text-3xl sm:text-4xl font-bold text-coral">90%+</p>
+                    <p class="mt-2 text-xs uppercase tracking-widest text-forest/60">Piling mortality reduction</p>
+                </div>
+            </div>
+            <div class="text-center">
+                <a href="contact.html?interest=pilot"
+                   class="inline-flex items-center px-10 py-4 text-sm font-bold uppercase tracking-widest bg-forest text-white rounded hover:bg-forest-dark transition-colors">
+                    Request a Pilot
+                </a>
+            </div>
+        </div>
+    </section>
+
+    <section class="py-12 sm:py-16 bg-cream">
+        <div class="max-w-4xl mx-auto px-4 sm:px-6 text-center">
+            <blockquote class="font-serif text-lg sm:text-xl italic text-forest/80 leading-relaxed">
+                "We'd pay for this tomorrow if it stops one pile event per flock."
+            </blockquote>
+            <p class="mt-4 text-xs uppercase tracking-widest text-forest/50">— Commercial broiler operator</p>
         </div>
     </section>
 
@@ -262,9 +491,9 @@
         <div class="max-w-6xl mx-auto px-4 sm:px-6 text-center">
             <h2 class="font-serif text-3xl sm:text-4xl font-semibold italic">See more. Know more. Keep flocks healthy.</h2>
             <p class="mt-4 text-white/70 max-w-xl mx-auto text-sm">
-                Farmers see $3,700–$11,000 in savings per barn per year — net-positive by month 3–4.
+                Edge AI for poultry barns — detect piling, track weight, monitor environment, and intervene in under 500ms.
             </p>
-            <a href="/contact.html"
+            <a href="contact.html"
                class="inline-flex items-center mt-8 px-10 py-4 text-sm font-bold uppercase tracking-widest bg-white text-forest rounded hover:bg-white/90 transition-colors">
                 Contact Us
             </a>
@@ -272,5 +501,22 @@
         </div>
     </footer>
 
+    <script src="hero-demo.js"></script>
+    <script src="hardware-demo.js"></script>
+    <script>
+        (function() {
+            var btn = document.getElementById('mobile-menu-btn');
+            var menu = document.getElementById('mobile-menu');
+            if (!btn || !menu) return;
+            btn.addEventListener('click', function() {
+                menu.classList.toggle('hidden');
+                var expanded = !menu.classList.contains('hidden');
+                btn.setAttribute('aria-expanded', expanded);
+            });
+            menu.querySelectorAll('a').forEach(function(link) {
+                link.addEventListener('click', function() { menu.classList.add('hidden'); });
+            });
+        })();
+    </script>
 </body>
 </html>

@@ -1,0 +1,417 @@
+/* ========================================
+   Hardware Per Barn — Isometric interactive
+   ======================================== */
+
+.hw-demo {
+    position: relative;
+}
+
+.hw-layout {
+    display: flex;
+    flex-direction: column;
+    gap: 1.25rem;
+}
+
+@media (min-width: 1024px) {
+    .hw-layout {
+        flex-direction: row;
+        align-items: stretch;
+        gap: 1.5rem;
+    }
+}
+
+/* ---- Diagram side ---- */
+.hw-diagram {
+    flex: 1 1 55%;
+    position: relative;
+    background: linear-gradient(155deg, #0D2818 0%, #1B4332 100%);
+    border: 1px solid rgba(107, 143, 113, 0.15);
+    border-radius: 10px;
+    padding: 0.75rem;
+    overflow: hidden;
+}
+
+.hw-svg {
+    width: 100%;
+    height: auto;
+    display: block;
+    overflow: visible;
+}
+
+.hw-svg-caption {
+    position: absolute;
+    top: 0.75rem;
+    left: 0.75rem;
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 9px;
+    color: rgba(250, 247, 242, 0.35);
+    text-transform: uppercase;
+    letter-spacing: 0.15em;
+}
+
+.hw-tour-btn {
+    position: absolute;
+    bottom: 0.75rem;
+    right: 0.75rem;
+    padding: 5px 12px;
+    background: rgba(13, 40, 24, 0.7);
+    border: 1px solid rgba(107, 143, 113, 0.3);
+    border-radius: 9999px;
+    color: rgba(250, 247, 242, 0.7);
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 10px;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 0.1em;
+    cursor: pointer;
+    transition: background 0.2s ease, color 0.2s ease, border-color 0.2s ease;
+}
+
+.hw-tour-btn:hover {
+    background: rgba(107, 143, 113, 0.2);
+    color: #FAF7F2;
+    border-color: rgba(107, 143, 113, 0.6);
+}
+
+.hw-tour-btn:focus-visible {
+    outline: 2px solid #6B8F71;
+    outline-offset: 2px;
+}
+
+/* ---- Barn structure ---- */
+.hw-floor {
+    fill: rgba(13, 40, 24, 0.6);
+    stroke: rgba(107, 143, 113, 0.25);
+    stroke-width: 1;
+}
+
+.hw-floor-grid {
+    stroke: rgba(107, 143, 113, 0.12);
+    stroke-width: 0.5;
+    fill: none;
+}
+
+.hw-wall {
+    fill: rgba(27, 67, 50, 0.45);
+    stroke: rgba(107, 143, 113, 0.3);
+    stroke-width: 1;
+}
+
+.hw-wall-right {
+    fill: rgba(13, 40, 24, 0.65);
+}
+
+.hw-birds circle {
+    fill: rgba(250, 247, 242, 0.35);
+}
+
+/* ---- Hotspots (default state) ---- */
+.hw-hotspot {
+    cursor: pointer;
+    transition: opacity 0.3s ease;
+}
+
+.hw-hotspot:focus {
+    outline: none;
+}
+
+.hw-hotspot:focus-visible .hw-focus-ring {
+    opacity: 1;
+}
+
+.hw-focus-ring {
+    fill: none;
+    stroke: #FAF7F2;
+    stroke-width: 1;
+    stroke-dasharray: 3 2;
+    opacity: 0;
+    pointer-events: none;
+    transition: opacity 0.2s ease;
+}
+
+/* Cameras */
+.hw-camera-ring {
+    fill: rgba(13, 40, 24, 0.6);
+    stroke: rgba(107, 143, 113, 0.7);
+    stroke-width: 1.5;
+    transition: stroke 0.4s ease, stroke-width 0.4s ease, fill 0.4s ease;
+}
+.hw-camera-lens {
+    fill: #6B8F71;
+    transition: fill 0.4s ease;
+}
+.hw-mount {
+    stroke: rgba(107, 143, 113, 0.25);
+    stroke-width: 0.75;
+    stroke-dasharray: 2 2;
+    fill: none;
+}
+
+/* LED strip */
+.hw-led-strip {
+    stroke: rgba(232, 93, 76, 0.35);
+    stroke-width: 2;
+    fill: none;
+    stroke-linecap: round;
+    transition: stroke 0.4s ease, stroke-width 0.4s ease;
+}
+
+/* Jetson */
+.hw-jetson-box {
+    fill: rgba(107, 143, 113, 0.2);
+    stroke: rgba(107, 143, 113, 0.7);
+    stroke-width: 1.25;
+    transition: fill 0.4s ease, stroke 0.4s ease, stroke-width 0.4s ease;
+}
+.hw-jetson-label {
+    fill: rgba(107, 143, 113, 0.9);
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 7px;
+    font-weight: 700;
+    letter-spacing: 0.1em;
+    pointer-events: none;
+    transition: fill 0.4s ease;
+}
+.hw-jetson-dot {
+    fill: rgba(232, 93, 76, 0.7);
+    transition: opacity 0.4s ease;
+}
+
+/* Speakers */
+.hw-speaker-cone {
+    fill: rgba(13, 40, 24, 0.5);
+    stroke: rgba(250, 247, 242, 0.45);
+    stroke-width: 1.25;
+    transition: stroke 0.4s ease, stroke-width 0.4s ease;
+}
+.hw-speaker-center {
+    fill: rgba(250, 247, 242, 0.5);
+    transition: fill 0.4s ease;
+}
+.hw-sound-ring {
+    fill: none;
+    stroke: rgba(250, 247, 242, 0.8);
+    stroke-width: 1.25;
+    opacity: 0;
+    transform-origin: center;
+    transform-box: fill-box;
+}
+
+/* Sensors */
+.hw-sensor-body {
+    fill: rgba(13, 40, 24, 0.7);
+    stroke: rgba(250, 247, 242, 0.4);
+    stroke-width: 0.8;
+    transition: stroke 0.4s ease, stroke-width 0.4s ease;
+}
+.hw-sensor-led {
+    fill: rgba(232, 93, 76, 0.7);
+    transition: opacity 0.4s ease;
+}
+
+/* Data flow lines */
+.hw-flow {
+    fill: none;
+    stroke: rgba(107, 143, 113, 0);
+    stroke-width: 1;
+    stroke-dasharray: 4 4;
+    transition: stroke 0.4s ease;
+    pointer-events: none;
+}
+
+/* ---- Active states (data-active drives all) ---- */
+[data-active="cameras"] .hw-camera[data-hardware="cameras"] .hw-camera-ring,
+[data-active="cameras"] .hw-camera-ring {
+    stroke: #FAF7F2;
+    stroke-width: 2;
+    filter: drop-shadow(0 0 4px rgba(107, 143, 113, 0.8));
+}
+[data-active="cameras"] .hw-camera-lens {
+    fill: #FAF7F2;
+    animation: hw-blink 1.2s ease-in-out infinite;
+}
+[data-active="cameras"] .hw-flow[data-from="cameras"] {
+    stroke: rgba(107, 143, 113, 0.85);
+    animation: hw-flow-dash 1s linear infinite;
+}
+
+[data-active="leds"] .hw-led-strip {
+    stroke: #E85D4C;
+    stroke-width: 3;
+    filter: drop-shadow(0 0 5px rgba(232, 93, 76, 0.65));
+    animation: hw-led-pulse 1.4s ease-in-out infinite;
+}
+
+[data-active="jetson"] .hw-jetson-box {
+    fill: rgba(107, 143, 113, 0.4);
+    stroke: #FAF7F2;
+    stroke-width: 1.75;
+    filter: drop-shadow(0 0 6px rgba(107, 143, 113, 0.7));
+}
+[data-active="jetson"] .hw-jetson-label {
+    fill: #FAF7F2;
+}
+[data-active="jetson"] .hw-jetson-dot {
+    animation: hw-blink 0.8s ease-in-out infinite;
+}
+[data-active="jetson"] .hw-flow {
+    stroke: rgba(107, 143, 113, 0.5);
+    animation: hw-flow-dash 1.4s linear infinite;
+}
+
+[data-active="audio"] .hw-speaker-cone {
+    stroke: #FAF7F2;
+    stroke-width: 1.75;
+    filter: drop-shadow(0 0 5px rgba(250, 247, 242, 0.55));
+}
+[data-active="audio"] .hw-speaker-center {
+    fill: #FAF7F2;
+}
+[data-active="audio"] .hw-sound-ring {
+    opacity: 1;
+    animation: hw-sound 1.4s ease-out infinite;
+}
+[data-active="audio"] .hw-sound-ring:nth-of-type(2) { animation-delay: 0.45s; }
+[data-active="audio"] .hw-sound-ring:nth-of-type(3) { animation-delay: 0.9s; }
+
+[data-active="sensors"] .hw-sensor-body {
+    stroke: #6B8F71;
+    stroke-width: 1.5;
+    filter: drop-shadow(0 0 4px rgba(107, 143, 113, 0.6));
+}
+[data-active="sensors"] .hw-sensor-led {
+    animation: hw-blink 0.7s ease-in-out infinite;
+}
+[data-active="sensors"] .hw-flow[data-from="sensors"] {
+    stroke: rgba(107, 143, 113, 0.85);
+    animation: hw-flow-dash 1s linear infinite;
+}
+
+/* Hover for non-active hotspots */
+.hw-hotspot:hover .hw-camera-ring,
+.hw-hotspot:hover .hw-speaker-cone,
+.hw-hotspot:hover .hw-sensor-body,
+.hw-hotspot:hover .hw-jetson-box {
+    stroke: rgba(250, 247, 242, 0.85);
+}
+.hw-hotspot:hover .hw-led-strip {
+    stroke: rgba(232, 93, 76, 0.7);
+}
+
+/* ---- Animations ---- */
+@keyframes hw-flow-dash {
+    to { stroke-dashoffset: -16; }
+}
+
+@keyframes hw-led-pulse {
+    0%, 100% { stroke: #E85D4C; }
+    50% { stroke: rgba(232, 93, 76, 0.55); }
+}
+
+@keyframes hw-blink {
+    0%, 100% { opacity: 1; }
+    50% { opacity: 0.35; }
+}
+
+@keyframes hw-sound {
+    0% { transform: scale(0.4); opacity: 0.9; }
+    100% { transform: scale(4); opacity: 0; }
+}
+
+/* ---- Detail panel ---- */
+.hw-panel {
+    flex: 1 1 45%;
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+}
+
+.hw-step-label {
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 10px;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 0.15em;
+    color: #6B8F71;
+}
+
+.hw-detail-title {
+    font-family: 'Playfair Display', serif;
+    font-size: 1.5rem;
+    font-weight: 600;
+    color: #FAF7F2;
+    line-height: 1.2;
+    min-height: 1.8em;
+}
+
+.hw-detail-body {
+    font-size: 0.875rem;
+    line-height: 1.55;
+    color: rgba(250, 247, 242, 0.75);
+    min-height: 4em;
+}
+
+.hw-list {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.5rem;
+    margin-top: 0.5rem;
+}
+
+.hw-list-btn {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.45rem;
+    padding: 0.5rem 0.85rem;
+    background: rgba(250, 247, 242, 0.05);
+    border: 1px solid rgba(107, 143, 113, 0.25);
+    border-radius: 9999px;
+    color: rgba(250, 247, 242, 0.75);
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 11px;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 0.08em;
+    cursor: pointer;
+    transition: background 0.2s ease, border-color 0.2s ease, color 0.2s ease;
+}
+
+.hw-list-btn:hover {
+    background: rgba(107, 143, 113, 0.18);
+    color: #FAF7F2;
+    border-color: rgba(107, 143, 113, 0.5);
+}
+
+.hw-list-btn:focus-visible {
+    outline: 2px solid #6B8F71;
+    outline-offset: 2px;
+}
+
+.hw-list-btn[aria-selected="true"] {
+    background: #6B8F71;
+    border-color: #6B8F71;
+    color: #0D2818;
+}
+
+.hw-list-dot {
+    width: 6px;
+    height: 6px;
+    border-radius: 9999px;
+    background: currentColor;
+    opacity: 0.6;
+}
+
+/* ---- Reduced motion ---- */
+@media (prefers-reduced-motion: reduce) {
+    .hw-camera-lens,
+    .hw-jetson-dot,
+    .hw-sensor-led,
+    .hw-flow,
+    .hw-led-strip,
+    .hw-sound-ring {
+        animation: none !important;
+    }
+    .hw-flow {
+        stroke-dasharray: 4 4;
+    }
+}

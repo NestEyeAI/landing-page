@@ -1,0 +1,401 @@
+.demo {
+    min-height: 240px;
+}
+
+.demo-layout {
+    display: flex;
+    gap: 0;
+    height: 260px;
+}
+
+@media (min-width: 640px) {
+    .demo-layout {
+        height: 300px;
+    }
+}
+
+/* Barn view - left panel */
+.barn-view {
+    position: relative;
+    flex: 1 1 65%;
+    overflow: hidden;
+    border-right: 1px solid rgba(255, 255, 255, 0.08);
+}
+
+.barn-grid {
+    position: absolute;
+    inset: 0;
+    background-image:
+        linear-gradient(rgba(255, 255, 255, 0.05) 1px, transparent 1px),
+        linear-gradient(90deg, rgba(255, 255, 255, 0.05) 1px, transparent 1px);
+    background-size: 32px 32px;
+    opacity: 1;
+}
+
+/* Bird dots */
+.bird {
+    position: absolute;
+    left: var(--x);
+    top: var(--y);
+    width: 8px;
+    height: 8px;
+    border-radius: 50%;
+    background: rgba(107, 143, 113, 0.8);
+    transition: left 1.5s cubic-bezier(0.4, 0, 0.2, 1),
+                top 1.5s cubic-bezier(0.4, 0, 0.2, 1),
+                background 0.6s ease,
+                box-shadow 0.6s ease;
+}
+
+/* Piling zone highlight */
+.piling-zone {
+    position: absolute;
+    left: 15%;
+    top: 20%;
+    width: 35%;
+    height: 45%;
+    border: 2px solid transparent;
+    border-radius: 8px;
+    opacity: 0;
+    transition: opacity 0.6s ease, border-color 0.6s ease, background 0.6s ease;
+}
+
+/* LED emitters — radial light pulses from ceiling */
+.led-emitter {
+    position: absolute;
+    width: 0;
+    height: 0;
+    pointer-events: none;
+}
+
+.led-ring {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    width: 12px;
+    height: 12px;
+    margin: -6px 0 0 -6px;
+    border-radius: 50%;
+    border: 2px solid rgba(107, 143, 113, 0.7);
+    box-shadow: 0 0 6px rgba(107, 143, 113, 0.4);
+    opacity: 0;
+    transform: scale(0.5);
+    pointer-events: none;
+}
+
+/* Speaker emitters — concentric sound wave arcs */
+.speaker-emitter {
+    position: absolute;
+    width: 0;
+    height: 0;
+    pointer-events: none;
+}
+
+.sound-ring {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    width: 10px;
+    height: 10px;
+    margin: -5px 0 0 -5px;
+    border-radius: 50%;
+    border: 1.5px solid rgba(250, 247, 242, 0.6);
+    box-shadow: 0 0 4px rgba(250, 247, 242, 0.3);
+    opacity: 0;
+    transform: scale(0.5);
+    pointer-events: none;
+}
+
+/* Alert badge */
+.alert-badge {
+    position: absolute;
+    top: 12px;
+    left: 12px;
+    padding: 4px 10px;
+    border-radius: 4px;
+    background: #E85D4C;
+    color: white;
+    font-size: 10px;
+    font-family: 'JetBrains Mono', monospace;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 0.05em;
+    opacity: 0;
+    transform: translateY(-4px);
+    transition: opacity 0.4s ease, transform 0.4s ease;
+}
+
+/* Metrics panel - right side */
+.metrics-panel {
+    flex: 0 0 35%;
+    padding: 16px;
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    justify-content: center;
+}
+
+@media (min-width: 640px) {
+    .metrics-panel {
+        padding: 20px;
+        gap: 12px;
+    }
+}
+
+.status-pill {
+    display: inline-block;
+    align-self: flex-start;
+    padding: 4px 12px;
+    border-radius: 9999px;
+    font-size: 10px;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 0.08em;
+    background: rgba(107, 143, 113, 0.2);
+    color: #6B8F71;
+    transition: background 0.5s ease, color 0.5s ease;
+}
+
+.metric-row {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    font-size: 11px;
+}
+
+.metric-label {
+    color: rgba(255, 255, 255, 0.4);
+    text-transform: uppercase;
+    letter-spacing: 0.08em;
+    font-size: 9px;
+}
+
+.metric-value {
+    color: rgba(255, 255, 255, 0.85);
+    font-weight: 700;
+    font-size: 12px;
+    transition: color 0.4s ease;
+}
+
+.demo-step {
+    margin-top: auto;
+    font-size: 10px;
+    color: rgba(255, 255, 255, 0.5);
+    font-style: italic;
+}
+
+/* ========================================
+   PHASE: MONITORING (default)
+   ======================================== */
+[data-phase="monitoring"] .bird {
+    background: rgba(107, 143, 113, 0.8);
+    box-shadow: 0 0 4px rgba(107, 143, 113, 0.3);
+}
+
+/* ========================================
+   PHASE: PILING
+   ======================================== */
+[data-phase="piling"] .bird {
+    background: rgba(232, 93, 76, 0.7);
+    box-shadow: 0 0 6px rgba(232, 93, 76, 0.4);
+}
+
+[data-phase="piling"] .piling-zone {
+    opacity: 1;
+    border-color: rgba(232, 93, 76, 0.7);
+    background: rgba(232, 93, 76, 0.08);
+}
+
+[data-phase="piling"] .alert-badge {
+    opacity: 1;
+    transform: translateY(0);
+}
+
+[data-phase="piling"] .status-pill {
+    background: rgba(232, 93, 76, 0.2);
+    color: #E85D4C;
+}
+
+/* ========================================
+   PHASE: CLASSIFY
+   ======================================== */
+[data-phase="classify"] .bird {
+    background: rgba(232, 93, 76, 0.7);
+    box-shadow: 0 0 6px rgba(232, 93, 76, 0.4);
+}
+
+[data-phase="classify"] .piling-zone {
+    opacity: 1;
+    border-color: rgba(232, 93, 76, 0.9);
+    background: rgba(232, 93, 76, 0.12);
+    animation: pulse-zone 0.8s ease-in-out infinite;
+}
+
+[data-phase="classify"] .alert-badge {
+    opacity: 1;
+    transform: translateY(0);
+    animation: pulse-badge 0.6s ease-in-out infinite;
+}
+
+[data-phase="classify"] .status-pill {
+    background: rgba(232, 93, 76, 0.25);
+    color: #E85D4C;
+}
+
+/* ========================================
+   PHASE: INTERVENE
+   ======================================== */
+[data-phase="intervene"] .bird {
+    background: rgba(255, 255, 255, 0.6);
+    box-shadow: 0 0 8px rgba(107, 143, 113, 0.5);
+}
+
+[data-phase="intervene"] .piling-zone {
+    opacity: 0.4;
+    border-color: rgba(107, 143, 113, 0.5);
+    background: transparent;
+}
+
+[data-phase="intervene"] .led-ring {
+    opacity: 1;
+    animation: led-pulse 1.6s ease-out infinite;
+}
+
+[data-phase="intervene"] .led-ring:nth-child(2) {
+    animation-delay: 0.4s;
+}
+
+[data-phase="intervene"] .led-ring:nth-child(3) {
+    animation-delay: 0.8s;
+}
+
+[data-phase="intervene"] .led-emitter:nth-child(4) .led-ring {
+    animation-delay: 0.2s;
+}
+
+[data-phase="intervene"] .led-emitter:nth-child(5) .led-ring {
+    animation-delay: 0.5s;
+}
+
+[data-phase="intervene"] .sound-ring {
+    opacity: 1;
+    animation: sound-wave 1.4s ease-out infinite;
+}
+
+[data-phase="intervene"] .sound-ring:nth-child(2) {
+    animation-delay: 0.35s;
+}
+
+[data-phase="intervene"] .sound-ring:nth-child(3) {
+    animation-delay: 0.7s;
+}
+
+[data-phase="intervene"] .speaker-emitter:nth-child(7) .sound-ring {
+    animation-delay: 0.2s;
+}
+
+[data-phase="intervene"] .alert-badge {
+    opacity: 0.6;
+    transform: translateY(0);
+}
+
+[data-phase="intervene"] .status-pill {
+    background: rgba(107, 143, 113, 0.25);
+    color: #6B8F71;
+}
+
+/* ========================================
+   PHASE: RESOLVED
+   ======================================== */
+[data-phase="resolved"] .bird {
+    background: rgba(107, 143, 113, 0.85);
+    box-shadow: 0 0 4px rgba(107, 143, 113, 0.4);
+}
+
+[data-phase="resolved"] .piling-zone {
+    opacity: 0;
+}
+
+[data-phase="resolved"] .alert-badge {
+    opacity: 0;
+    transform: translateY(-4px);
+}
+
+[data-phase="resolved"] .status-pill {
+    background: rgba(107, 143, 113, 0.2);
+    color: #6B8F71;
+}
+
+/* ========================================
+   ANIMATIONS
+   ======================================== */
+@keyframes led-pulse {
+    0% {
+        transform: scale(0.5);
+        opacity: 0.9;
+        border-color: rgba(107, 143, 113, 0.9);
+        box-shadow: 0 0 8px rgba(107, 143, 113, 0.6);
+    }
+    70% {
+        opacity: 0.3;
+    }
+    100% {
+        transform: scale(6);
+        opacity: 0;
+        border-color: rgba(107, 143, 113, 0.1);
+        box-shadow: 0 0 2px rgba(107, 143, 113, 0);
+    }
+}
+
+@keyframes sound-wave {
+    0% {
+        transform: scale(0.5);
+        opacity: 0.85;
+        border-color: rgba(250, 247, 242, 0.8);
+        box-shadow: 0 0 6px rgba(250, 247, 242, 0.5);
+    }
+    60% {
+        opacity: 0.35;
+    }
+    100% {
+        transform: scale(5);
+        opacity: 0;
+        border-color: rgba(250, 247, 242, 0.05);
+        box-shadow: 0 0 1px rgba(250, 247, 242, 0);
+    }
+}
+
+@keyframes pulse-zone {
+    0%, 100% { border-color: rgba(232, 93, 76, 0.9); }
+    50% { border-color: rgba(232, 93, 76, 0.4); }
+}
+
+@keyframes pulse-badge {
+    0%, 100% { opacity: 1; }
+    50% { opacity: 0.6; }
+}
+
+/* ========================================
+   REDUCED MOTION
+   ======================================== */
+@media (prefers-reduced-motion: reduce) {
+    .bird {
+        transition: none !important;
+    }
+    .led-ring,
+    .sound-ring {
+        animation: none !important;
+        opacity: 0 !important;
+    }
+    .piling-zone {
+        animation: none !important;
+        transition: none !important;
+    }
+    .alert-badge {
+        animation: none !important;
+        transition: none !important;
+    }
+    .status-pill {
+        transition: none !important;
+    }
+}

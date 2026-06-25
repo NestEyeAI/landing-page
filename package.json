@@ -1,0 +1,13 @@
+{
+  "name": "nesteye-landing",
+  "private": true,
+  "scripts": {
+    "build:css": "node node_modules/tailwindcss/lib/cli.js -i ./src/input.css -o ./public/styles.css --minify",
+    "watch:css": "tailwindcss -i ./src/input.css -o ./public/styles.css --watch",
+    "build": "npm run build:css",
+    "deploy": "npm run build && wrangler deploy"
+  },
+  "devDependencies": {
+    "tailwindcss": "^3"
+  }
+}
