@@ -1,0 +1,11 @@
+{
+  "name": "nesteye-landing",
+  "compatibility_date": "2026-06-24",
+  "assets": {
+    "directory": "./public"
+  },
+  "routes": [
+    { "pattern": "nesteye.ai", "custom_domain": true },
+    { "pattern": "www.nesteye.ai", "custom_domain": true }
+  ]
+}

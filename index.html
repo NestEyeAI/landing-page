@@ -1,0 +1,270 @@
+<!DOCTYPE html>
+<html lang="en" class="scroll-smooth">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>nesteye.ai | AI + Hardware for Smarter Poultry Health</title>
+    <meta name="description" content="Edge AI for poultry barns — detect piling, track weight, monitor environment, and intervene in under 500ms.">
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;700&family=Playfair+Display:ital,wght@0,400;0,600;1,400&display=swap" rel="stylesheet">
+
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    fontFamily: {
+                        mono: ['"JetBrains Mono"', 'monospace'],
+                        serif: ['"Playfair Display"', 'serif'],
+                    },
+                    colors: {
+                        forest: '#1B4332',
+                        'forest-dark': '#0D2818',
+                        sage: '#6B8F71',
+                        coral: '#E85D4C',
+                        cream: '#FAF7F2',
+                        stone: '#E8E4DC',
+                        'green-tint': '#E8F5E9',
+                    },
+                    animation: {
+                        marquee: 'scroll 50s linear infinite',
+                    },
+                    keyframes: {
+                        scroll: {
+                            '0%': { transform: 'translateX(0)' },
+                            '100%': { transform: 'translateX(-50%)' },
+                        },
+                    },
+                },
+            },
+        };
+    </script>
+
+    <style>
+        .hero-grid {
+            background-image:
+                linear-gradient(rgba(255,255,255,0.03) 1px, transparent 1px),
+                linear-gradient(90deg, rgba(255,255,255,0.03) 1px, transparent 1px);
+            background-size: 48px 48px;
+        }
+    </style>
+</head>
+<body class="font-mono bg-cream text-[#1A1A1A] antialiased">
+
+    <nav class="sticky top-0 z-50 bg-cream/90 backdrop-blur-md border-b border-forest/10">
+        <div class="max-w-6xl mx-auto px-4 sm:px-6 py-4 flex items-center justify-between gap-4">
+            <a href="/" class="font-extrabold text-lg tracking-tight text-forest">nesteye.ai</a>
+            <div class="hidden sm:flex items-center gap-6 text-xs font-bold uppercase tracking-widest text-forest/70">
+                <a href="#features" class="hover:text-forest transition-colors">Features</a>
+                <a href="#how-it-works" class="hover:text-forest transition-colors">How It Works</a>
+                <a href="#traction" class="hover:text-forest transition-colors">Traction</a>
+            </div>
+            <a href="/contact.html"
+               class="shrink-0 px-4 py-2 text-xs font-bold uppercase tracking-widest bg-forest text-white rounded hover:bg-forest-dark transition-colors">
+                Contact
+            </a>
+        </div>
+    </nav>
+
+    <header class="relative overflow-hidden bg-gradient-to-br from-forest-dark via-forest to-forest-dark text-white">
+        <div class="absolute inset-0 hero-grid opacity-50"></div>
+
+        <div class="relative max-w-6xl mx-auto px-4 sm:px-6 py-20 sm:py-28 lg:py-32">
+            <p class="text-sage text-xs font-bold uppercase tracking-[0.3em] mb-4">AI + Hardware for Smarter Poultry Health</p>
+            <h1 class="font-serif text-4xl sm:text-5xl lg:text-6xl font-semibold leading-tight max-w-3xl">
+                See more. Know more.<br>
+                <span class="italic text-white/90">Keep flocks healthy.</span>
+            </h1>
+            <p class="mt-6 text-base sm:text-lg text-white/80 max-w-2xl leading-relaxed">
+                One Edge AI box per barn — high-resolution cameras and local machine learning detect piling, track individual bird weight, and monitor environmental health in real time.
+            </p>
+            <div class="mt-10 flex flex-wrap gap-4">
+                <a href="/contact.html"
+                   class="inline-flex items-center px-8 py-3 text-sm font-bold uppercase tracking-widest bg-white text-forest rounded hover:bg-white/90 transition-colors">
+                    Get in Touch
+                </a>
+                <a href="#features"
+                   class="inline-flex items-center px-8 py-3 text-sm font-bold uppercase tracking-widest border border-white/30 text-white rounded hover:bg-white/10 transition-colors">
+                    Explore Features
+                </a>
+            </div>
+        </div>
+    </header>
+
+    <section class="bg-stone border-y border-forest/10">
+        <div class="max-w-6xl mx-auto px-4 sm:px-6 py-10">
+            <div class="grid grid-cols-1 sm:grid-cols-3 gap-8 text-center">
+                <div>
+                    <p class="text-3xl sm:text-4xl font-bold text-coral">$200M+</p>
+                    <p class="mt-1 text-xs uppercase tracking-widest text-forest/60">Annual preventable mortality losses (US)</p>
+                </div>
+                <div>
+                    <p class="text-3xl sm:text-4xl font-bold text-forest">9.2B</p>
+                    <p class="mt-1 text-xs uppercase tracking-widest text-forest/60">Broiler chickens produced annually</p>
+                </div>
+                <div>
+                    <p class="text-3xl sm:text-4xl font-bold text-sage">80%</p>
+                    <p class="mt-1 text-xs uppercase tracking-widest text-forest/60">Drop in Edge AI hardware costs (3 yrs)</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="features" class="py-16 sm:py-24 bg-cream">
+        <div class="max-w-6xl mx-auto px-4 sm:px-6">
+            <div class="text-center mb-12">
+                <p class="text-xs font-bold uppercase tracking-[0.3em] text-forest/60 mb-2">The Solution</p>
+                <h2 class="font-serif text-3xl sm:text-4xl font-semibold text-forest">One Edge AI Box Per Barn</h2>
+                <p class="mt-4 text-sm text-forest/70 max-w-2xl mx-auto">Five integrated capabilities working together to protect your flock around the clock.</p>
+            </div>
+
+            <div class="grid sm:grid-cols-2 lg:grid-cols-3 gap-6">
+                <div class="bg-white rounded-lg p-6 shadow-sm">
+                    <span class="inline-block w-8 h-8 rounded-full bg-forest text-white text-sm font-bold flex items-center justify-center mb-4">01</span>
+                    <h3 class="font-bold text-forest mb-2">Piling Detection</h3>
+                    <p class="text-sm text-forest/70">Advanced AI/ML algorithms and high-res cameras identify piling among chickens instantly.</p>
+                </div>
+                <div class="bg-white rounded-lg p-6 shadow-sm">
+                    <span class="inline-block w-8 h-8 rounded-full bg-forest text-white text-sm font-bold flex items-center justify-center mb-4">02</span>
+                    <h3 class="font-bold text-forest mb-2">Piling Prevention</h3>
+                    <p class="text-sm text-forest/70">Rotating LED lights and precise noise patterns safely disperse chickens before piling becomes lethal.</p>
+                </div>
+                <div class="bg-white rounded-lg p-6 shadow-sm">
+                    <span class="inline-block w-8 h-8 rounded-full bg-forest text-white text-sm font-bold flex items-center justify-center mb-4">03</span>
+                    <h3 class="font-bold text-forest mb-2">Weight Monitoring</h3>
+                    <p class="text-sm text-forest/70">Accurately detects and tracks the weight of individual chickens, providing continuous growth insights.</p>
+                </div>
+                <div class="bg-white rounded-lg p-6 shadow-sm">
+                    <span class="inline-block w-8 h-8 rounded-full bg-forest text-white text-sm font-bold flex items-center justify-center mb-4">04</span>
+                    <h3 class="font-bold text-forest mb-2">Early Disease Detection</h3>
+                    <p class="text-sm text-forest/70">Identifies health issues at an early stage, allowing for rapid, targeted veterinary intervention.</p>
+                </div>
+                <div class="bg-white rounded-lg p-6 shadow-sm sm:col-span-2 lg:col-span-1 lg:col-start-2">
+                    <span class="inline-block w-8 h-8 rounded-full bg-forest text-white text-sm font-bold flex items-center justify-center mb-4">05</span>
+                    <h3 class="font-bold text-forest mb-2">Environmental Monitoring</h3>
+                    <p class="text-sm text-forest/70">Continuously monitors temperature, humidity, and air quality 24/7 — keeping barn conditions optimal for flock health.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="how-it-works" class="py-16 sm:py-24 bg-green-tint">
+        <div class="max-w-6xl mx-auto px-4 sm:px-6">
+            <div class="text-center mb-12">
+                <p class="text-xs font-bold uppercase tracking-[0.3em] text-forest/60 mb-2">The Loop</p>
+                <h2 class="font-serif text-3xl sm:text-4xl font-semibold text-forest">How It Works</h2>
+            </div>
+
+            <div class="grid sm:grid-cols-2 lg:grid-cols-4 gap-6 mb-12">
+                <div class="bg-white rounded-lg p-6 shadow-sm">
+                    <span class="inline-block w-8 h-8 rounded-full bg-forest text-white text-sm font-bold flex items-center justify-center mb-4">1</span>
+                    <h3 class="font-bold text-forest mb-2">Capture</h3>
+                    <p class="text-sm text-forest/70">Overhead IR cameras and environmental sensors capture continuous barn data.</p>
+                </div>
+                <div class="bg-white rounded-lg p-6 shadow-sm">
+                    <span class="inline-block w-8 h-8 rounded-full bg-forest text-white text-sm font-bold flex items-center justify-center mb-4">2</span>
+                    <h3 class="font-bold text-forest mb-2">Classify</h3>
+                    <p class="text-sm text-forest/70">Edge AI classifies behavior, estimates weight, and reads metrics locally in <strong class="text-sage">under 500ms</strong>.</p>
+                </div>
+                <div class="bg-white rounded-lg p-6 shadow-sm">
+                    <span class="inline-block w-8 h-8 rounded-full bg-forest text-white text-sm font-bold flex items-center justify-center mb-4">3</span>
+                    <h3 class="font-bold text-forest mb-2">Intervene</h3>
+                    <p class="text-sm text-forest/70">Adaptive LED and noise patterns trigger to disperse birds without habituation.</p>
+                </div>
+                <div class="bg-white rounded-lg p-6 shadow-sm">
+                    <span class="inline-block w-8 h-8 rounded-full bg-forest text-white text-sm font-bold flex items-center justify-center mb-4">4</span>
+                    <h3 class="font-bold text-forest mb-2">Dashboard</h3>
+                    <p class="text-sm text-forest/70">Farmers view real-time data and alerts on their mobile dashboard.</p>
+                </div>
+            </div>
+
+            <div class="bg-forest rounded-lg p-6 sm:p-8 text-white">
+                <p class="text-xs font-bold uppercase tracking-widest text-sage mb-4">Hardware Per Barn</p>
+                <div class="grid sm:grid-cols-2 lg:grid-cols-4 gap-4 text-sm">
+                    <div class="flex items-center gap-2"><span class="text-sage">&#9679;</span> Overhead high-res IR cameras (PoE)</div>
+                    <div class="flex items-center gap-2"><span class="text-sage">&#9679;</span> Jetson Orin Nano edge device</div>
+                    <div class="flex items-center gap-2"><span class="text-sage">&#9679;</span> Addressable LED strips &amp; audio emitters</div>
+                    <div class="flex items-center gap-2"><span class="text-sage">&#9679;</span> Environmental sensor array</div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="traction" class="py-16 sm:py-24 bg-cream">
+        <div class="max-w-6xl mx-auto px-4 sm:px-6">
+            <div class="text-center mb-12">
+                <p class="text-xs font-bold uppercase tracking-[0.3em] text-forest/60 mb-2">Validation</p>
+                <h2 class="font-serif text-3xl sm:text-4xl font-semibold text-forest">Built. Tested. Validated.</h2>
+            </div>
+
+            <div class="grid sm:grid-cols-2 lg:grid-cols-4 gap-6">
+                <div class="bg-white rounded-lg p-6 text-center shadow-sm border-t-4 border-forest">
+                    <p class="text-4xl font-bold text-forest">0.998</p>
+                    <p class="mt-2 text-xs uppercase tracking-widest text-forest/60">Piling detection AP on test data</p>
+                </div>
+                <div class="bg-white rounded-lg p-6 text-center shadow-sm border-t-4 border-sage">
+                    <p class="text-4xl font-bold text-sage">IR</p>
+                    <p class="mt-2 text-xs uppercase tracking-widest text-forest/60">Camera prototype tested in real barn conditions</p>
+                </div>
+                <div class="bg-white rounded-lg p-6 text-center shadow-sm border-t-4 border-coral">
+                    <p class="text-4xl font-bold text-coral">2</p>
+                    <p class="mt-2 text-xs uppercase tracking-widest text-forest/60">Commercial farms secured + paid pilot LOI</p>
+                </div>
+                <div class="bg-white rounded-lg p-6 text-center shadow-sm border-t-4 border-forest">
+                    <p class="text-4xl font-bold text-forest">10/10</p>
+                    <p class="mt-2 text-xs uppercase tracking-widest text-forest/60">Farm operators expressed strong interest</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="founders" class="py-12 sm:py-16 bg-stone border-y border-forest/10">
+        <div class="max-w-6xl mx-auto px-4 sm:px-6">
+            <h2 class="font-serif text-sm text-forest/50 mb-6 italic text-center">Founder Experience</h2>
+            <div class="overflow-hidden relative">
+                <div class="animate-marquee whitespace-nowrap flex w-max items-center">
+                    <div class="flex items-center space-x-12 px-8">
+                        <div class="flex flex-col items-center"><span class="text-[8px] text-forest/40 uppercase">Software Intern</span><span class="text-xs font-bold text-forest">Amazon</span></div>
+                        <div class="flex flex-col items-center"><span class="text-[8px] text-forest/40 uppercase">AI Researcher</span><span class="text-xs font-bold text-forest">Rice University</span></div>
+                        <div class="flex flex-col items-center"><span class="text-[8px] text-forest/40 uppercase">Farm Tech</span><span class="text-xs font-bold text-forest">MobilizeGreen</span></div>
+                        <div class="flex flex-col items-center"><span class="text-[8px] text-forest/40 uppercase">Field Specialist</span><span class="text-xs font-bold text-forest">Cox</span></div>
+                        <div class="flex flex-col items-center"><span class="text-[8px] text-forest/40 uppercase">Hardware Engineer</span><span class="text-xs font-bold text-forest">Texas Aerial Robotics</span></div>
+                        <div class="flex flex-col items-center"><span class="text-[8px] text-forest/40 uppercase">Cybersecurity</span><span class="text-xs font-bold text-forest">Serent Capital</span></div>
+                        <div class="flex flex-col items-center"><span class="text-[8px] text-forest/40 uppercase">Software Engineer</span><span class="text-xs font-bold text-forest">Banner Health</span></div>
+                        <div class="flex flex-col items-center"><span class="text-[8px] text-forest/40 uppercase">Electrical Engineer</span><span class="text-xs font-bold text-forest">Dell Technologies</span></div>
+                        <div class="flex flex-col items-center"><span class="text-[8px] text-forest/40 uppercase">Robotics Research</span><span class="text-xs font-bold text-forest">UT Robotics</span></div>
+                    </div>
+                    <div class="flex items-center space-x-12 px-8">
+                        <div class="flex flex-col items-center"><span class="text-[8px] text-forest/40 uppercase">Software Intern</span><span class="text-xs font-bold text-forest">Amazon</span></div>
+                        <div class="flex flex-col items-center"><span class="text-[8px] text-forest/40 uppercase">AI Researcher</span><span class="text-xs font-bold text-forest">Rice University</span></div>
+                        <div class="flex flex-col items-center"><span class="text-[8px] text-forest/40 uppercase">Farm Tech</span><span class="text-xs font-bold text-forest">MobilizeGreen</span></div>
+                        <div class="flex flex-col items-center"><span class="text-[8px] text-forest/40 uppercase">Field Specialist</span><span class="text-xs font-bold text-forest">Cox</span></div>
+                        <div class="flex flex-col items-center"><span class="text-[8px] text-forest/40 uppercase">Hardware Engineer</span><span class="text-xs font-bold text-forest">Texas Aerial Robotics</span></div>
+                        <div class="flex flex-col items-center"><span class="text-[8px] text-forest/40 uppercase">Cybersecurity</span><span class="text-xs font-bold text-forest">Serent Capital</span></div>
+                        <div class="flex flex-col items-center"><span class="text-[8px] text-forest/40 uppercase">Software Engineer</span><span class="text-xs font-bold text-forest">Banner Health</span></div>
+                        <div class="flex flex-col items-center"><span class="text-[8px] text-forest/40 uppercase">Electrical Engineer</span><span class="text-xs font-bold text-forest">Dell Technologies</span></div>
+                        <div class="flex flex-col items-center"><span class="text-[8px] text-forest/40 uppercase">Robotics Research</span><span class="text-xs font-bold text-forest">UT Robotics</span></div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <footer class="bg-gradient-to-br from-forest-dark via-forest to-forest-dark text-white py-16 sm:py-20">
+        <div class="max-w-6xl mx-auto px-4 sm:px-6 text-center">
+            <h2 class="font-serif text-3xl sm:text-4xl font-semibold italic">See more. Know more. Keep flocks healthy.</h2>
+            <p class="mt-4 text-white/70 max-w-xl mx-auto text-sm">
+                Farmers see $3,700–$11,000 in savings per barn per year — net-positive by month 3–4.
+            </p>
+            <a href="/contact.html"
+               class="inline-flex items-center mt-8 px-10 py-4 text-sm font-bold uppercase tracking-widest bg-white text-forest rounded hover:bg-white/90 transition-colors">
+                Contact Us
+            </a>
+            <p class="mt-12 text-xs text-white/40 uppercase tracking-widest">&copy; 2026 nesteye.ai</p>
+        </div>
+    </footer>
+
+</body>
+</html>

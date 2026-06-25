@@ -1,0 +1,131 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Contact | nesteye.ai</title>
+    <meta name="description" content="Get in touch with nesteye.ai — Edge AI for smarter poultry health.">
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;700&family=Playfair+Display:ital,wght@0,400;0,600;1,400&display=swap" rel="stylesheet">
+
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    fontFamily: {
+                        mono: ['"JetBrains Mono"', 'monospace'],
+                        serif: ['"Playfair Display"', 'serif'],
+                    },
+                    colors: {
+                        forest: '#1B4332',
+                        'forest-dark': '#0D2818',
+                        sage: '#6B8F71',
+                        cream: '#FAF7F2',
+                        stone: '#E8E4DC',
+                    },
+                },
+            },
+        };
+    </script>
+</head>
+<body class="font-mono bg-cream text-[#1A1A1A] antialiased min-h-screen flex flex-col">
+
+    <nav class="sticky top-0 z-50 bg-cream/90 backdrop-blur-md border-b border-forest/10">
+        <div class="max-w-6xl mx-auto px-4 sm:px-6 py-4 flex items-center justify-between gap-4">
+            <a href="/" class="font-extrabold text-lg tracking-tight text-forest">nesteye.ai</a>
+            <div class="hidden sm:flex items-center gap-6 text-xs font-bold uppercase tracking-widest text-forest/70">
+                <a href="/#features" class="hover:text-forest transition-colors">Features</a>
+                <a href="/#how-it-works" class="hover:text-forest transition-colors">How It Works</a>
+                <a href="/#traction" class="hover:text-forest transition-colors">Traction</a>
+            </div>
+            <a href="/contact.html"
+               class="shrink-0 px-4 py-2 text-xs font-bold uppercase tracking-widest bg-forest text-white rounded">
+                Contact
+            </a>
+        </div>
+    </nav>
+
+    <main class="flex-1 py-16 sm:py-24">
+        <div class="max-w-xl mx-auto px-4 sm:px-6">
+            <div class="text-center mb-10">
+                <p class="text-xs font-bold uppercase tracking-[0.3em] text-forest/60 mb-2">Reach Out</p>
+                <h1 class="font-serif text-3xl sm:text-4xl font-semibold text-forest">Get in Touch</h1>
+                <p class="mt-4 text-sm text-forest/70 leading-relaxed">
+                    Have a question about our Edge AI system or interested in a pilot? Send us a message and we'll get back to you.
+                </p>
+            </div>
+
+            <form id="contact-form" class="bg-white rounded-lg p-6 sm:p-8 shadow-sm space-y-6">
+                <div>
+                    <label for="name" class="block text-xs font-bold uppercase tracking-widest text-forest/60 mb-2">Name</label>
+                    <input type="text" id="name" name="name" required
+                           class="w-full px-4 py-3 text-sm border border-forest/20 rounded bg-cream focus:outline-none focus:border-forest transition-colors"
+                           placeholder="Your name">
+                </div>
+
+                <div>
+                    <label for="email" class="block text-xs font-bold uppercase tracking-widest text-forest/60 mb-2">Email</label>
+                    <input type="email" id="email" name="email" required
+                           class="w-full px-4 py-3 text-sm border border-forest/20 rounded bg-cream focus:outline-none focus:border-forest transition-colors"
+                           placeholder="you@example.com">
+                </div>
+
+                <div>
+                    <label for="question" class="block text-xs font-bold uppercase tracking-widest text-forest/60 mb-2">Question / Subject</label>
+                    <input type="text" id="question" name="question" required
+                           class="w-full px-4 py-3 text-sm border border-forest/20 rounded bg-cream focus:outline-none focus:border-forest transition-colors"
+                           placeholder="What would you like to know?">
+                </div>
+
+                <div>
+                    <label for="message" class="block text-xs font-bold uppercase tracking-widest text-forest/60 mb-2">Message</label>
+                    <textarea id="message" name="message" rows="6" required
+                              class="w-full px-4 py-3 text-sm border border-forest/20 rounded bg-cream focus:outline-none focus:border-forest transition-colors resize-y"
+                              placeholder="Tell us more about your barn, flock size, or interest in a pilot..."></textarea>
+                </div>
+
+                <button type="submit"
+                        class="w-full px-8 py-3 text-sm font-bold uppercase tracking-widest bg-forest text-white rounded hover:bg-forest-dark transition-colors">
+                    Send Message
+                </button>
+
+                <p class="text-xs text-forest/50 text-center">
+                    Submitting opens your email client to send to contact@nesteye.ai
+                </p>
+            </form>
+        </div>
+    </main>
+
+    <footer class="bg-stone border-t border-forest/10 py-8">
+        <div class="max-w-6xl mx-auto px-4 sm:px-6 text-center">
+            <a href="/" class="text-xs text-forest/60 hover:text-forest transition-colors uppercase tracking-widest">&larr; Back to nesteye.ai</a>
+            <p class="mt-4 text-xs text-forest/40 uppercase tracking-widest">&copy; 2026 nesteye.ai</p>
+        </div>
+    </footer>
+
+    <script>
+        document.getElementById('contact-form').addEventListener('submit', function (e) {
+            e.preventDefault();
+
+            const name = document.getElementById('name').value.trim();
+            const email = document.getElementById('email').value.trim();
+            const question = document.getElementById('question').value.trim();
+            const message = document.getElementById('message').value.trim();
+
+            const subject = encodeURIComponent('[nesteye.ai] ' + question);
+            const body = encodeURIComponent(
+                'Name: ' + name + '\n' +
+                'Email: ' + email + '\n' +
+                'Question: ' + question + '\n\n' +
+                'Message:\n' + message
+            );
+
+            window.location.href = 'mailto:contact@nesteye.ai?subject=' + subject + '&body=' + body;
+        });
+    </script>
+
+</body>
+</html>
