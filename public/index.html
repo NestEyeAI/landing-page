@@ -23,6 +23,7 @@
     <link rel="stylesheet" href="styles.css">
     <link rel="stylesheet" href="hero-demo.css">
     <link rel="stylesheet" href="hardware-demo.css">
+    <link rel="stylesheet" href="features.css">
     <style>
         html { scroll-padding-top: 5rem; }
         .hero-noise {
@@ -214,32 +215,222 @@
                 <p class="mt-4 text-sm text-forest/70 max-w-2xl mx-auto">Five integrated capabilities working together to protect your flock around the clock.</p>
             </div>
 
-            <div class="grid sm:grid-cols-2 lg:grid-cols-3 gap-6">
-                <div class="bg-white rounded-lg p-6 shadow-sm">
-                    <span class="inline-flex w-8 h-8 rounded-full bg-forest text-white text-sm font-bold items-center justify-center mb-4">01</span>
-                    <h3 class="font-bold text-forest mb-2">Piling Detection</h3>
-                    <p class="text-sm text-forest/70">Advanced AI/ML algorithms and high-res cameras identify piling among chickens instantly.</p>
-                </div>
-                <div class="bg-white rounded-lg p-6 shadow-sm">
-                    <span class="inline-flex w-8 h-8 rounded-full bg-forest text-white text-sm font-bold items-center justify-center mb-4">02</span>
-                    <h3 class="font-bold text-forest mb-2">Piling Prevention</h3>
-                    <p class="text-sm text-forest/70">Rotating LED lights and precise noise patterns safely disperse chickens before piling becomes lethal.</p>
-                </div>
-                <div class="bg-white rounded-lg p-6 shadow-sm">
-                    <span class="inline-flex w-8 h-8 rounded-full bg-forest text-white text-sm font-bold items-center justify-center mb-4">03</span>
-                    <h3 class="font-bold text-forest mb-2">Weight Monitoring</h3>
-                    <p class="text-sm text-forest/70">Accurately detects and tracks the weight of individual chickens, providing continuous growth insights.</p>
-                </div>
-                <div class="bg-white rounded-lg p-6 shadow-sm">
-                    <span class="inline-flex w-8 h-8 rounded-full bg-forest text-white text-sm font-bold items-center justify-center mb-4">04</span>
-                    <h3 class="font-bold text-forest mb-2">Early Disease Detection</h3>
-                    <p class="text-sm text-forest/70">Identifies health issues at an early stage, allowing for rapid, targeted veterinary intervention.</p>
-                </div>
-                <div class="bg-white rounded-lg p-6 shadow-sm sm:col-span-2 lg:col-span-1 lg:col-start-2">
-                    <span class="inline-flex w-8 h-8 rounded-full bg-forest text-white text-sm font-bold items-center justify-center mb-4">05</span>
-                    <h3 class="font-bold text-forest mb-2">Environmental Monitoring</h3>
-                    <p class="text-sm text-forest/70">Continuously monitors temperature, humidity, and air quality 24/7 — keeping barn conditions optimal for flock health.</p>
-                </div>
+            <div class="features-v2">
+                <!-- 01 Piling Detection -->
+                <article class="fcard" tabindex="0">
+                    <div class="fvis fvis-piling" aria-hidden="true">
+                        <div class="fvis-grid"></div>
+                        <span class="fbird"></span>
+                        <span class="fbird"></span>
+                        <span class="fbird"></span>
+                        <span class="fbird"></span>
+                        <span class="fbird"></span>
+                        <span class="fbird"></span>
+                        <span class="fbird"></span>
+                        <span class="fbird"></span>
+                        <span class="fbird"></span>
+                        <span class="fbird"></span>
+                        <span class="fbird"></span>
+                        <span class="fbird"></span>
+                        <div class="detection-box"></div>
+                        <div class="vis-tag"><span class="live-dot"></span>Live</div>
+                    </div>
+                    <div class="fbody">
+                        <div class="fhead">
+                            <h3>Piling Detection</h3>
+                            <span class="fnum">01</span>
+                        </div>
+                        <p class="fdesc">Advanced AI/ML algorithms and high-res cameras identify piling among chickens instantly.</p>
+                        <div class="fdetail">
+                            <div class="fstats">
+                                <div class="stat"><span class="stat-num">0.998</span><span class="stat-lbl">AP test</span></div>
+                                <div class="stat"><span class="stat-num">5s</span><span class="stat-lbl">cycle</span></div>
+                                <div class="stat"><span class="stat-num">25s</span><span class="stat-lbl">confirm</span></div>
+                            </div>
+                            <p class="fdetail-text">ConvNeXt-T classifier with 6-frame confirmation. Fine-tuned per farm so detection holds up under real lighting and dust.</p>
+                        </div>
+                    </div>
+                </article>
+
+                <!-- 02 Piling Prevention -->
+                <article class="fcard" tabindex="0">
+                    <div class="fvis fvis-prevention" aria-hidden="true">
+                        <div class="fvis-grid"></div>
+                        <div class="led-strip led-strip-top">
+                            <span class="led-dot"></span><span class="led-dot"></span><span class="led-dot"></span>
+                            <span class="led-dot"></span><span class="led-dot"></span><span class="led-dot"></span>
+                            <span class="led-dot"></span><span class="led-dot"></span><span class="led-dot"></span>
+                            <span class="led-dot"></span><span class="led-dot"></span><span class="led-dot"></span>
+                        </div>
+                        <div class="led-strip led-strip-bottom">
+                            <span class="led-dot"></span><span class="led-dot"></span><span class="led-dot"></span>
+                            <span class="led-dot"></span><span class="led-dot"></span><span class="led-dot"></span>
+                            <span class="led-dot"></span><span class="led-dot"></span><span class="led-dot"></span>
+                            <span class="led-dot"></span><span class="led-dot"></span><span class="led-dot"></span>
+                        </div>
+                        <span class="speaker s-l"></span>
+                        <span class="speaker s-r"></span>
+                        <span class="fbird"></span>
+                        <span class="fbird"></span>
+                        <span class="fbird"></span>
+                        <span class="fbird"></span>
+                        <span class="fbird"></span>
+                        <span class="fbird"></span>
+                        <span class="fbird"></span>
+                        <span class="fbird"></span>
+                        <span class="fbird"></span>
+                        <span class="fbird"></span>
+                        <div class="vis-tag"><span class="live-dot"></span>Dispersing</div>
+                    </div>
+                    <div class="fbody">
+                        <div class="fhead">
+                            <h3>Piling Prevention</h3>
+                            <span class="fnum">02</span>
+                        </div>
+                        <p class="fdesc">Rotating LED lights and precise noise patterns safely disperse chickens before piling becomes lethal.</p>
+                        <div class="fdetail">
+                            <div class="fstats">
+                                <div class="stat"><span class="stat-num">2-ch</span><span class="stat-lbl">LED + audio</span></div>
+                                <div class="stat"><span class="stat-num">28d+</span><span class="stat-lbl">no habituation</span></div>
+                                <div class="stat"><span class="stat-num">&lt;500ms</span><span class="stat-lbl">response</span></div>
+                            </div>
+                            <p class="fdetail-text">Anti-habituation engine rotates stimuli and escalates intensity. Multi-modal design keeps birds responsive over the full grow-out cycle.</p>
+                        </div>
+                    </div>
+                </article>
+
+                <!-- 03 Weight Monitoring -->
+                <article class="fcard" tabindex="0">
+                    <div class="fvis fvis-weight" aria-hidden="true">
+                        <div class="weight-label">Flock avg</div>
+                        <div class="weight-counter"><span class="w-static">2.83 kg</span></div>
+                        <svg class="chart" viewBox="0 0 220 100" preserveAspectRatio="none">
+                            <line class="chart-axis" x1="0" y1="100" x2="220" y2="100"/>
+                            <line class="chart-axis" x1="0" y1="0" x2="0" y2="100"/>
+                            <path class="chart-area" d="M0,90 C40,80 70,60 110,42 C150,28 190,16 220,8 L220,100 L0,100 Z"/>
+                            <path class="chart-line" d="M0,90 C40,80 70,60 110,42 C150,28 190,16 220,8"/>
+                            <circle class="chart-dot" cx="220" cy="8"/>
+                        </svg>
+                        <div class="vis-tag"><span class="live-dot"></span>Day 35</div>
+                    </div>
+                    <div class="fbody">
+                        <div class="fhead">
+                            <h3>Weight Monitoring</h3>
+                            <span class="fnum">03</span>
+                        </div>
+                        <p class="fdesc">Accurately detects and tracks the weight of individual chickens, providing continuous growth insights.</p>
+                        <div class="fdetail">
+                            <div class="fstats">
+                                <div class="stat"><span class="stat-num">R²&nbsp;0.999</span><span class="stat-lbl">Cobb 500</span></div>
+                                <div class="stat"><span class="stat-num">Daily</span><span class="stat-lbl">flock avg</span></div>
+                                <div class="stat"><span class="stat-num">0</span><span class="stat-lbl">scales needed</span></div>
+                            </div>
+                            <p class="fdetail-text">Gaussian Exponential Regression on overhead morphometrics. Replaces walk-over scales that sample under 5% of the flock.</p>
+                        </div>
+                    </div>
+                </article>
+
+                <!-- 04 Early Disease Detection -->
+                <article class="fcard" tabindex="0">
+                    <div class="fvis fvis-disease" aria-hidden="true">
+                        <div class="fvis-grid"></div>
+                        <div class="scan-tag"><span class="dot"></span>Scanning</div>
+                        <span class="fbird b-1"></span>
+                        <span class="fbird b-2"></span>
+                        <span class="fbird b-3"></span>
+                        <span class="fbird b-4"></span>
+                        <span class="fbird b-5"></span>
+                        <span class="fbird b-6"></span>
+                        <span class="fbird b-7"></span>
+                        <span class="fbird b-8"></span>
+                        <span class="fbird b-9"></span>
+                        <span class="fbird b-10"></span>
+                        <span class="fbird b-11"></span>
+                        <span class="fbird anomaly"></span>
+                        <div class="scan-line"></div>
+                    </div>
+                    <div class="fbody">
+                        <div class="fhead">
+                            <h3>Early Disease Detection</h3>
+                            <span class="fnum">04</span>
+                        </div>
+                        <p class="fdesc">Identifies health issues at an early stage, allowing for rapid, targeted veterinary intervention.</p>
+                        <div class="fdetail">
+                            <div class="fstats">
+                                <div class="stat"><span class="stat-num">24/7</span><span class="stat-lbl">behavior</span></div>
+                                <div class="stat"><span class="stat-num">Days</span><span class="stat-lbl">earlier</span></div>
+                                <div class="stat"><span class="stat-num">Auto</span><span class="stat-lbl">heatmap</span></div>
+                            </div>
+                            <p class="fdetail-text">Behavioral anomaly detection and mortality recognition flag outbreaks days before they're visible on a barn walk.</p>
+                        </div>
+                    </div>
+                </article>
+
+                <!-- 05 Environmental Monitoring -->
+                <article class="fcard" tabindex="0">
+                    <div class="fvis fvis-env" aria-hidden="true">
+                        <div class="env-cell env-temp">
+                            <span class="live-dot"></span>
+                            <div class="env-lbl">Temp</div>
+                            <svg viewBox="0 0 120 40" preserveAspectRatio="none">
+                                <path class="wave" d="M0,20 Q10,10 20,20 T40,20 T60,20 T80,20 T100,20 T120,20 T140,20"/>
+                            </svg>
+                            <div class="env-val">
+                                <span>72&deg;F</span>
+                                <span>74&deg;F</span>
+                                <span>73&deg;F</span>
+                                <span>75&deg;F</span>
+                            </div>
+                        </div>
+                        <div class="env-cell env-humid">
+                            <span class="live-dot"></span>
+                            <div class="env-lbl">Humidity</div>
+                            <div class="drops">
+                                <span class="drop"></span>
+                                <span class="drop"></span>
+                                <span class="drop"></span>
+                            </div>
+                            <div class="env-val">
+                                <span>62%</span>
+                                <span>64%</span>
+                                <span>65%</span>
+                                <span>63%</span>
+                            </div>
+                        </div>
+                        <div class="env-cell env-aq">
+                            <span class="live-dot"></span>
+                            <div class="env-lbl">Air</div>
+                            <div class="bars">
+                                <span class="bar"></span>
+                                <span class="bar"></span>
+                                <span class="bar"></span>
+                                <span class="bar"></span>
+                                <span class="bar"></span>
+                            </div>
+                            <div class="env-val">
+                                <span>Good</span>
+                                <span>Good</span>
+                                <span>Fair</span>
+                                <span>Good</span>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="fbody">
+                        <div class="fhead">
+                            <h3>Environmental Monitoring</h3>
+                            <span class="fnum">05</span>
+                        </div>
+                        <p class="fdesc">Continuously monitors temperature, humidity, and air quality 24/7 — keeping barn conditions optimal for flock health.</p>
+                        <div class="fdetail">
+                            <div class="fstats">
+                                <div class="stat"><span class="stat-num">24/7</span><span class="stat-lbl">sampling</span></div>
+                                <div class="stat"><span class="stat-num">4-ch</span><span class="stat-lbl">sensors</span></div>
+                                <div class="stat"><span class="stat-num">Auto</span><span class="stat-lbl">alerts</span></div>
+                            </div>
+                            <p class="fdetail-text">Temperature, humidity, ammonia, and CO₂ tracked continuously. Threshold breaches push to the dashboard before heat stress sets in.</p>
+                        </div>
+                    </div>
+                </article>
             </div>
         </div>
     </section>
@@ -514,6 +705,7 @@
 
     <script src="hero-demo.js"></script>
     <script src="hardware-demo.js"></script>
+    <script src="features.js"></script>
     <script>
         (function() {
             var btn = document.getElementById('mobile-menu-btn');
