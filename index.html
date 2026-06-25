@@ -29,7 +29,7 @@
                         'green-tint': '#E8F5E9',
                     },
                     animation: {
-                        marquee: 'scroll 50s linear infinite',
+                        marquee: 'scroll 60s linear infinite',
                     },
                     keyframes: {
                         scroll: {
@@ -48,6 +48,10 @@
                 linear-gradient(rgba(255,255,255,0.03) 1px, transparent 1px),
                 linear-gradient(90deg, rgba(255,255,255,0.03) 1px, transparent 1px);
             background-size: 48px 48px;
+        }
+        .founder-logo {
+            object-fit: contain;
+            display: block;
         }
     </style>
 </head>
@@ -220,32 +224,34 @@
         </div>
     </section>
 
-    <section id="founders" class="py-12 sm:py-16 bg-stone border-y border-forest/10">
-        <div class="max-w-6xl mx-auto px-4 sm:px-6">
-            <h2 class="font-serif text-sm text-forest/50 mb-6 italic text-center">Founder Experience</h2>
-            <div class="overflow-hidden relative">
-                <div class="animate-marquee whitespace-nowrap flex w-max items-center">
-                    <div class="flex items-center space-x-12 px-8">
-                        <div class="flex flex-col items-center"><span class="text-[8px] text-forest/40 uppercase">Software Intern</span><span class="text-xs font-bold text-forest">Amazon</span></div>
-                        <div class="flex flex-col items-center"><span class="text-[8px] text-forest/40 uppercase">AI Researcher</span><span class="text-xs font-bold text-forest">Rice University</span></div>
-                        <div class="flex flex-col items-center"><span class="text-[8px] text-forest/40 uppercase">Farm Tech</span><span class="text-xs font-bold text-forest">MobilizeGreen</span></div>
-                        <div class="flex flex-col items-center"><span class="text-[8px] text-forest/40 uppercase">Field Specialist</span><span class="text-xs font-bold text-forest">Cox</span></div>
-                        <div class="flex flex-col items-center"><span class="text-[8px] text-forest/40 uppercase">Hardware Engineer</span><span class="text-xs font-bold text-forest">Texas Aerial Robotics</span></div>
-                        <div class="flex flex-col items-center"><span class="text-[8px] text-forest/40 uppercase">Cybersecurity</span><span class="text-xs font-bold text-forest">Serent Capital</span></div>
-                        <div class="flex flex-col items-center"><span class="text-[8px] text-forest/40 uppercase">Software Engineer</span><span class="text-xs font-bold text-forest">Banner Health</span></div>
-                        <div class="flex flex-col items-center"><span class="text-[8px] text-forest/40 uppercase">Electrical Engineer</span><span class="text-xs font-bold text-forest">Dell Technologies</span></div>
-                        <div class="flex flex-col items-center"><span class="text-[8px] text-forest/40 uppercase">Robotics Research</span><span class="text-xs font-bold text-forest">UT Robotics</span></div>
+    <section id="founders" class="py-20 sm:py-28 bg-cream border-y border-forest/10">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6">
+            <div class="text-center mb-12 sm:mb-16">
+                <p class="text-xs font-bold uppercase tracking-[0.3em] text-forest/50 mb-3">Our Background</p>
+                <h2 class="font-serif text-2xl sm:text-4xl font-semibold text-forest italic">Founder Experience</h2>
+            </div>
+
+            <div class="overflow-hidden relative py-6">
+                <div class="animate-marquee flex w-max items-center">
+                    <div class="flex items-center gap-20 sm:gap-28 px-10 sm:px-14">
+                        <img src="/logos/amazon.svg" alt="Amazon" class="founder-logo h-14 sm:h-20 w-auto max-w-[180px] shrink-0" loading="lazy">
+                        <img src="/logos/rice.png" alt="Rice University" class="founder-logo h-14 sm:h-20 w-auto max-w-[180px] shrink-0" loading="lazy">
+                        <img src="/logos/mobilizegreen.png" alt="MobilizeGreen" class="founder-logo h-14 sm:h-20 w-auto max-w-[200px] shrink-0" loading="lazy">
+                        <img src="/logos/cox.png" alt="Cox" class="founder-logo h-12 sm:h-16 w-auto max-w-[180px] shrink-0" loading="lazy">
+                        <img src="/logos/ut-austin.png" alt="University of Texas at Austin" class="founder-logo h-14 sm:h-20 w-auto max-w-[180px] shrink-0" loading="lazy">
+                        <img src="/logos/serent.png" alt="Serent Capital" class="founder-logo h-14 sm:h-20 w-auto max-w-[200px] shrink-0" loading="lazy">
+                        <img src="/logos/banner.png" alt="Banner Health" class="founder-logo h-14 sm:h-20 w-auto max-w-[180px] shrink-0" loading="lazy">
+                        <img src="/logos/dell.svg" alt="Dell Technologies" class="founder-logo h-12 sm:h-16 w-auto max-w-[180px] shrink-0" loading="lazy">
                     </div>
-                    <div class="flex items-center space-x-12 px-8">
-                        <div class="flex flex-col items-center"><span class="text-[8px] text-forest/40 uppercase">Software Intern</span><span class="text-xs font-bold text-forest">Amazon</span></div>
-                        <div class="flex flex-col items-center"><span class="text-[8px] text-forest/40 uppercase">AI Researcher</span><span class="text-xs font-bold text-forest">Rice University</span></div>
-                        <div class="flex flex-col items-center"><span class="text-[8px] text-forest/40 uppercase">Farm Tech</span><span class="text-xs font-bold text-forest">MobilizeGreen</span></div>
-                        <div class="flex flex-col items-center"><span class="text-[8px] text-forest/40 uppercase">Field Specialist</span><span class="text-xs font-bold text-forest">Cox</span></div>
-                        <div class="flex flex-col items-center"><span class="text-[8px] text-forest/40 uppercase">Hardware Engineer</span><span class="text-xs font-bold text-forest">Texas Aerial Robotics</span></div>
-                        <div class="flex flex-col items-center"><span class="text-[8px] text-forest/40 uppercase">Cybersecurity</span><span class="text-xs font-bold text-forest">Serent Capital</span></div>
-                        <div class="flex flex-col items-center"><span class="text-[8px] text-forest/40 uppercase">Software Engineer</span><span class="text-xs font-bold text-forest">Banner Health</span></div>
-                        <div class="flex flex-col items-center"><span class="text-[8px] text-forest/40 uppercase">Electrical Engineer</span><span class="text-xs font-bold text-forest">Dell Technologies</span></div>
-                        <div class="flex flex-col items-center"><span class="text-[8px] text-forest/40 uppercase">Robotics Research</span><span class="text-xs font-bold text-forest">UT Robotics</span></div>
+                    <div class="flex items-center gap-20 sm:gap-28 px-10 sm:px-14" aria-hidden="true">
+                        <img src="/logos/amazon.svg" alt="" class="founder-logo h-14 sm:h-20 w-auto max-w-[180px] shrink-0" loading="lazy">
+                        <img src="/logos/rice.png" alt="" class="founder-logo h-14 sm:h-20 w-auto max-w-[180px] shrink-0" loading="lazy">
+                        <img src="/logos/mobilizegreen.png" alt="" class="founder-logo h-14 sm:h-20 w-auto max-w-[200px] shrink-0" loading="lazy">
+                        <img src="/logos/cox.png" alt="" class="founder-logo h-12 sm:h-16 w-auto max-w-[180px] shrink-0" loading="lazy">
+                        <img src="/logos/ut-austin.png" alt="" class="founder-logo h-14 sm:h-20 w-auto max-w-[180px] shrink-0" loading="lazy">
+                        <img src="/logos/serent.png" alt="" class="founder-logo h-14 sm:h-20 w-auto max-w-[200px] shrink-0" loading="lazy">
+                        <img src="/logos/banner.png" alt="" class="founder-logo h-14 sm:h-20 w-auto max-w-[180px] shrink-0" loading="lazy">
+                        <img src="/logos/dell.svg" alt="" class="founder-logo h-12 sm:h-16 w-auto max-w-[180px] shrink-0" loading="lazy">
                     </div>
                 </div>
             </div>
