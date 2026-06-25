@@ -23,13 +23,15 @@
 
     <nav class="sticky top-0 z-50 bg-cream/90 backdrop-blur-md border-b border-forest/10">
         <div class="max-w-6xl mx-auto px-4 sm:px-6 py-4 flex items-center justify-between gap-4">
-            <a href="index.html" class="inline-flex items-center px-3 py-1.5 rounded-md border border-forest/15 bg-white shadow-sm">
-                <span class="font-extrabold text-sm tracking-tight text-forest">nesteye.ai</span>
+            <a href="index.html" class="inline-flex items-center" aria-label="nesteye.ai home">
+                <img src="assets/nesteye-logo.png" alt="nesteye" class="h-10 sm:h-12 w-auto select-none" draggable="false">
             </a>
             <div class="hidden sm:flex items-center gap-6 text-xs font-bold uppercase tracking-widest text-forest/70">
                 <a href="index.html#features" class="hover:text-forest transition-colors">Features</a>
                 <a href="index.html#how-it-works" class="hover:text-forest transition-colors">How It Works</a>
                 <a href="index.html#traction" class="hover:text-forest transition-colors">Traction</a>
+                <a href="privacy.html" class="text-forest/50 hover:text-forest transition-colors">Privacy</a>
+                <a href="terms.html" class="text-forest/50 hover:text-forest transition-colors">Terms</a>
             </div>
             <div class="flex items-center gap-2">
                 <a href="contact.html"
@@ -46,6 +48,8 @@
                 <a href="index.html#features" class="block text-sm font-bold uppercase tracking-widest text-forest/70 hover:text-forest">Features</a>
                 <a href="index.html#how-it-works" class="block text-sm font-bold uppercase tracking-widest text-forest/70 hover:text-forest">How It Works</a>
                 <a href="index.html#traction" class="block text-sm font-bold uppercase tracking-widest text-forest/70 hover:text-forest">Traction</a>
+                <a href="privacy.html" class="block text-sm font-bold uppercase tracking-widest text-forest/50 hover:text-forest">Privacy</a>
+                <a href="terms.html" class="block text-sm font-bold uppercase tracking-widest text-forest/50 hover:text-forest">Terms</a>
                 <a href="contact.html" class="block w-full text-center px-4 py-3 text-xs font-bold uppercase tracking-widest bg-forest text-white rounded">Contact</a>
             </div>
         </div>
@@ -100,15 +104,24 @@
                     Send Message
                 </button>
 
+                <p class="text-xs text-forest/50 text-center">
+                    By submitting, you agree to our <a href="privacy.html" class="underline hover:text-forest">Privacy Policy</a>.
+                </p>
+
                 <div id="form-status" class="hidden text-center text-sm py-2 rounded"></div>
             </form>
         </div>
     </main>
 
     <footer class="bg-stone border-t border-forest/10 py-8">
-        <div class="max-w-6xl mx-auto px-4 sm:px-6 text-center">
-            <a href="index.html" class="text-xs text-forest/60 hover:text-forest transition-colors uppercase tracking-widest">&larr; Back to nesteye.ai</a>
-            <p class="mt-4 text-xs text-forest/40 uppercase tracking-widest">&copy; 2026 nesteye.ai</p>
+        <div class="max-w-6xl mx-auto px-4 sm:px-6 flex flex-col sm:flex-row items-center justify-between gap-4 text-xs uppercase tracking-widest">
+            <a href="index.html" class="text-forest/60 hover:text-forest transition-colors">&larr; Back to nesteye.ai</a>
+            <div class="flex items-center gap-5 text-forest/60">
+                <a href="privacy.html" class="hover:text-forest transition-colors">Privacy</a>
+                <a href="terms.html" class="hover:text-forest transition-colors">Terms</a>
+                <a href="contact.html" class="hover:text-forest transition-colors">Contact</a>
+            </div>
+            <p class="text-forest/40">&copy; 2026 nesteye.ai</p>
         </div>
     </footer>
 
@@ -155,12 +168,12 @@
                     status.className = 'text-center text-sm py-2 rounded bg-green-tint text-forest';
                     form.reset();
                 } else {
-                    status.textContent = 'Something went wrong. Please email contact@nesteye.ai directly.';
+                    status.textContent = 'Something went wrong. Please email team@nesteye.com directly.';
                     status.className = 'text-center text-sm py-2 rounded bg-red-50 text-coral';
                 }
             })
             .catch(function() {
-                status.textContent = 'Network error. Please email contact@nesteye.ai directly.';
+                status.textContent = 'Network error. Please email team@nesteye.com directly.';
                 status.className = 'text-center text-sm py-2 rounded bg-red-50 text-coral';
             })
             .finally(function() {
