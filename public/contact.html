@@ -158,12 +158,12 @@
                     status.className = 'text-center text-sm py-2 rounded bg-green-tint text-forest';
                     form.reset();
                 } else {
-                    status.textContent = 'Something went wrong. Please email team@nesteye.com directly.';
+                    status.textContent = 'Something went wrong. Please email team@nesteye.ai directly.';
                     status.className = 'text-center text-sm py-2 rounded bg-red-50 text-coral';
                 }
             })
             .catch(function() {
-                status.textContent = 'Network error. Please email team@nesteye.com directly.';
+                status.textContent = 'Network error. Please email team@nesteye.ai directly.';
                 status.className = 'text-center text-sm py-2 rounded bg-red-50 text-coral';
             })
             .finally(function() {
